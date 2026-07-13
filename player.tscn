@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d3e4optw0tb3"]
 
-[ext_resource type="Texture2D" uid="uid://c15nwfobh8g2g" path="res://sprites/player_placeholder.png" id="1_4flbx"]
+[ext_resource type="SpriteFrames" uid="uid://dpxvr6jaeing" path="res://pimpek_frames.tres" id="1_4flbx"]
 
 [node name="Player" type="CharacterBody2D" unique_id=679463758]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=250252080]
-texture = ExtResource("1_4flbx")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=776353048]
+sprite_frames = ExtResource("1_4flbx")
+animation = &"walk_side"
