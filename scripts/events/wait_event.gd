@@ -3,5 +3,5 @@ class_name WaitEvent
 
 @export var seconds := 1.0
 
-func execute(_context):
-	await get_tree().create_timer(seconds).timeout
+func execute(context):
+	await context.get_tree().create_timer(seconds).timeout

@@ -3,10 +3,11 @@ class_name DialogueEvent
 
 @export_multiline var text := ""
 
-func execute(_context):
-	var ui = get_tree().current_scene.get_node("UI")
+func execute(context):
+	var tree = context.get_tree()
+	var ui = tree.current_scene.get_node("UI")
 
 	ui.show_dialogue(text)
 
 	while ui.box.visible:
-		await get_tree().process_frame
+		await tree.process_frame

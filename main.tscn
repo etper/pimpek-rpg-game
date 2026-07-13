@@ -4,6 +4,23 @@
 [ext_resource type="Script" uid="uid://delvtvrc53ses" path="res://scripts/player.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://dialogue.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="5_272bh"]
+[ext_resource type="Script" uid="uid://defefeianjptd" path="res://scripts/events/wait_event.gd" id="6_5vw27"]
+
+[sub_resource type="Resource" id="Resource_efxa6"]
+script = ExtResource("5_272bh")
+text = "co tam mordo"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_dg77c"]
+script = ExtResource("6_5vw27")
+metadata/_custom_type_script = "uid://defefeianjptd"
+
+[sub_resource type="Resource" id="Resource_ycdy4"]
+script = ExtResource("5_272bh")
+text = "nic? no dobra"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
 
@@ -13,6 +30,7 @@ script = ExtResource("2_0xm2m")
 
 [node name="Interactable" parent="." unique_id=497211360 instance=ExtResource("3_h2yge")]
 position = Vector2(222, 362)
+events = Array[ExtResource("4_lquwl")]([SubResource("Resource_efxa6"), SubResource("Resource_dg77c"), SubResource("Resource_ycdy4")])
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=641810485]
 script = ExtResource("4_1bvp3")
@@ -22,13 +40,13 @@ visible = false
 custom_maximum_size = Vector2(1600, 180)
 offset_left = 27.0
 offset_top = 781.0
-offset_right = 1899.0
-offset_bottom = 1061.0
+offset_right = 1627.0
+offset_bottom = 961.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox" unique_id=604527061]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1597.0
+offset_bottom = 182.0
 
 [node name="Label" type="Label" parent="UI/DialogueBox/MarginContainer" unique_id=1815239886]
 layout_mode = 2

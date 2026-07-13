@@ -1,6 +1,6 @@
 extends Node
 
-func run(events: Array[EventCommand], context = null):
+func run(events: Array[EventCommand], context):
 	for event in events:
-		if event:
+		if event != null:
 			await event.execute(context)
