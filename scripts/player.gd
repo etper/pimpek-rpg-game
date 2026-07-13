@@ -22,7 +22,7 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 		move_and_slide()
 
-		if ui.box.visible and Input.is_action_just_pressed("interact"):
+		if ui.box.visible and ui.finished and Input.is_action_just_pressed("interact"):
 			ui.hide_dialogue()
 
 		return
