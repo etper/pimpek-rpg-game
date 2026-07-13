@@ -11,20 +11,12 @@ extends Area2D
 
 var busy := false
 
-@onready var highlight = $Highlight
-
+@onready var sprite_node = $Sprite2D
 
 func _ready():
 	if sprite:
-		$Sprite2D.texture = sprite
+		sprite_node.texture = sprite
 
-	if highlight:
-		highlight.visible = false
-
-
-func set_highlight(enabled: bool):
-	if highlight:
-		highlight.visible = enabled
 
 
 func interact():
