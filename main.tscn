@@ -144,18 +144,18 @@ text = "SEX"
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Interactable" parent="." unique_id=73629740 instance=ExtResource("3_h2yge")]
+[node name="Bed" parent="." unique_id=73629740 instance=ExtResource("3_h2yge")]
 position = Vector2(416, 456)
 sprite = ExtResource("6_5vw27")
 events = Array[ExtResource("7_5vw27")]([SubResource("Resource_7mycd")])
 
-[node name="Sprite2D" parent="Interactable" index="0" unique_id=122994009]
+[node name="Sprite2D" parent="Bed" index="0" unique_id=122994009]
 texture = ExtResource("6_5vw27")
 
-[node name="CollisionShape2D" parent="Interactable/StaticBody2D" parent_id_path=PackedInt32Array(73629740, 1564942911) index="0" unique_id=451810197]
+[node name="CollisionShape2D" parent="Bed/StaticBody2D" parent_id_path=PackedInt32Array(73629740, 1564942911) index="0" unique_id=451810197]
 scale = Vector2(0.85624695, 1.4916242)
 
-[node name="CollisionShape2D" parent="Interactable" index="2" unique_id=931893703]
+[node name="CollisionShape2D" parent="Bed" index="3" unique_id=931893703]
 scale = Vector2(0.89208364, 1.4976672)
 
-[editable path="Interactable"]
+[editable path="Bed"]

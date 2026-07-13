@@ -4,9 +4,11 @@ extends CharacterBody2D
 @export var sprint_multiplier := 1.8
 
 var facing := Vector2.DOWN
+var highlighted: Area2D = null
 
 @onready var anim = $AnimatedSprite2D
 @onready var interaction_area = $InteractionArea
+
 
 func _physics_process(_delta):
 	var ui = get_tree().current_scene.get_node("UI")
@@ -16,7 +18,6 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 		move_and_slide()
 
-		# Still allow closing dialogue if it's open
 		if ui.box.visible and Input.is_action_just_pressed("interact"):
 			ui.hide_dialogue()
 
@@ -66,12 +67,31 @@ func _physics_process(_delta):
 			anim.flip_h = false
 			anim.play("walk_up")
 
-	# Interact
+	update_highlight()
+
 	if Input.is_action_just_pressed("interact"):
 		interact()
 
+
+func update_highlight():
+	var target = null
+
+	for area in interaction_area.get_overlapping_areas():
+		if area.has_method("interact"):
+			target = area
+			break
+
+	if highlighted != target:
+		if highlighted:
+			highlighted.set_highlight(false)
+
+		highlighted = target
+
+		if highlighted:
+			highlighted.set_highlight(true)
+
+
 func interact():
-	
 	velocity = Vector2.ZERO
 
 	match anim.animation:
@@ -86,8 +106,7 @@ func interact():
 		if area.has_method("interact"):
 			await area.interact()
 			return
-			
-			
+
 	for area in interaction_area.get_overlapping_areas():
 		if area == interaction_area:
 			continue

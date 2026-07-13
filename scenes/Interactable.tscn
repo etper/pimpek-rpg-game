@@ -10,6 +10,9 @@ script = ExtResource("1_msfch")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=122994009]
 
+[node name="Highlight" type="Sprite2D" parent="." unique_id=1223708640]
+visible = false
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1564942911]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=451810197]
