@@ -3,7 +3,7 @@ class_name DialogueEvent
 
 @export_multiline var text := ""
 
-func execute():
+func execute(_context):
 	var ui = get_tree().current_scene.get_node("UI")
 
 	ui.show_dialogue(text)

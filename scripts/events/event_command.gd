@@ -1,5 +1,5 @@
 extends Resource
 class_name EventCommand
 
-func execute():
+func execute(_context):
 	pass

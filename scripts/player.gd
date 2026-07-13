@@ -71,10 +71,10 @@ func _physics_process(_delta):
 func interact():
 	for area in interaction_area.get_overlapping_areas():
 		if area.has_method("interact"):
-			area.interact()
+			await area.interact()
 			return
 
 	for body in interaction_area.get_overlapping_bodies():
 		if body.has_method("interact"):
-			body.interact()
+			await body.interact()
 			return

@@ -1,6 +1,13 @@
 extends Area2D
 
-@export_multiline var text := "Hello!"
+@export var events: Array[EventCommand]
+
+var busy := false
 
 func interact():
-	get_tree().current_scene.get_node("UI").show_dialogue(text)
+	if busy:
+		return
+
+	busy = true
+	await EventRunner.run(events, self)
+	busy = false
