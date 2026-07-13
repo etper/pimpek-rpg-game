@@ -14,10 +14,15 @@ var highlighted: Area2D = null
 @export var left_offset := Vector2(-24, 0)
 @export var right_offset := Vector2(24, 0)
 
+@export var test_enemy: EnemyData
+
 func _physics_process(_delta):
 	
 	if get_tree().paused:
 		return
+	
+	if Input.is_action_just_pressed("battle_test"):
+		BattleManager.start_battle(test_enemy)
 	
 	var ui = get_tree().current_scene.get_node("UI")
 
