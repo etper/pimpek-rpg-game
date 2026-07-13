@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://delvtvrc53ses" path="res://scripts/player.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://scripts/dialogue.gd" id="4_1bvp3"]
+[ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://scenes/Minecraft.ttf" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cpl3rdfirur6m" path="res://sprites/bed.png" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="8_kek77"]
@@ -107,12 +108,12 @@ sources/2 = SubResource("TileSetAtlasSource_5vw27")
 
 [sub_resource type="Resource" id="Resource_7mycd"]
 script = ExtResource("8_kek77")
-text = "Nie jestem spiacy"
+text = "Niewiarygodne jest to, jak wygodne jest to lozko"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [sub_resource type="Resource" id="Resource_kek77"]
 script = ExtResource("8_kek77")
-text = "Coz za piekny dzien!"
+text = "Jak przyjemnie sie patrzy na to, co razem zbudowalismy"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
@@ -144,7 +145,10 @@ offset_bottom = 182.0
 
 [node name="Label" type="Label" parent="UI/DialogueBox/MarginContainer" unique_id=1815239886]
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("5_4c57u")
+theme_override_font_sizes/font_size = 50
 text = "SEX"
 vertical_alignment = 1
 autowrap_mode = 2
@@ -157,10 +161,10 @@ events = Array[ExtResource("7_5vw27")]([SubResource("Resource_7mycd")])
 [node name="Sprite2D" parent="Bed" index="0" unique_id=122994009]
 texture = ExtResource("6_5vw27")
 
-[node name="CollisionShape2D" parent="Bed/StaticBody2D" parent_id_path=PackedInt32Array(73629740, 1564942911) index="0" unique_id=451810197]
-scale = Vector2(0.85624695, 1.4916242)
+[node name="Collision" parent="Bed/StaticBody2D" parent_id_path=PackedInt32Array(73629740, 1564942911) index="0" unique_id=451810197]
+scale = Vector2(0.85624695, 1.4116242)
 
-[node name="CollisionShape2D" parent="Bed" index="2" unique_id=931893703]
+[node name="InteractShape" parent="Bed" index="2" unique_id=931893703]
 scale = Vector2(0.89208364, 1.4976672)
 
 [node name="Window" parent="." unique_id=1726131768 instance=ExtResource("3_h2yge")]
