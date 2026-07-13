@@ -10,4 +10,7 @@ func execute(context):
 	ui.show_dialogue(text)
 
 	while ui.box.visible:
+		if ui.finished and Input.is_action_just_pressed("interact"):
+			ui.hide_dialogue()
+
 		await tree.process_frame
