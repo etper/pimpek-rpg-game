@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://dwmpyn4ib731t" path="res://scripts/interactable.gd" id="1_msfch"]
 [ext_resource type="Shader" uid="uid://whiq838q40tq" path="res://scenes/Interactable.gdshader" id="2_0iwdk"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0iwdk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efa16"]
 shader = ExtResource("2_0iwdk")
+shader_parameter/enabled = false
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iwdk"]
 size = Vector2(132, 132)
@@ -13,7 +16,7 @@ size = Vector2(132, 132)
 script = ExtResource("1_msfch")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=122994009]
-material = SubResource("ShaderMaterial_0iwdk")
+material = SubResource("ShaderMaterial_efa16")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1564942911]
 

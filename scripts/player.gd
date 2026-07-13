@@ -81,14 +81,16 @@ func update_highlight():
 			target = area
 			break
 
-	if highlighted != target:
-		if highlighted:
-			highlighted.set_highlight(false)
+	if target == highlighted:
+		return
 
-		highlighted = target
+	if highlighted:
+		highlighted.set_highlight(false)
 
-		if highlighted:
-			highlighted.set_highlight(true)
+	highlighted = target
+
+	if highlighted:
+		highlighted.set_highlight(true)
 
 
 func interact():

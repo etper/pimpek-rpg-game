@@ -1,31 +1,35 @@
 shader_type canvas_item;
 
-uniform vec4 outline_color : source_color = vec4(1.0, 1.0, 0.0, 1.0);
-uniform float outline_size = 1.0;
+uniform bool enabled = false;
+uniform vec4 line_color : source_color = vec4(1.0, 1.0, 0.0, 1.0);
+uniform float line_thickness : hint_range(0.0, 10.0) = 1.0;
+
+const vec2 OFFSETS[8] = {
+	vec2(-1.0, -1.0),
+	vec2(-1.0,  0.0),
+	vec2(-1.0,  1.0),
+	vec2( 0.0, -1.0),
+	vec2( 0.0,  1.0),
+	vec2( 1.0, -1.0),
+	vec2( 1.0,  0.0),
+	vec2( 1.0,  1.0)
+};
 
 void fragment() {
-	vec4 tex = texture(TEXTURE, UV);
+	vec4 color = texture(TEXTURE, UV);
 
-	if (tex.a > 0.0) {
-		COLOR = tex;
-		return;
-	}
-
-	vec2 p = TEXTURE_PIXEL_SIZE * outline_size;
-
-	float a = 0.0;
-	a += texture(TEXTURE, UV + vec2( p.x, 0.0)).a;
-	a += texture(TEXTURE, UV + vec2(-p.x, 0.0)).a;
-	a += texture(TEXTURE, UV + vec2(0.0,  p.y)).a;
-	a += texture(TEXTURE, UV + vec2(0.0, -p.y)).a;
-	a += texture(TEXTURE, UV + vec2( p.x,  p.y)).a;
-	a += texture(TEXTURE, UV + vec2(-p.x,  p.y)).a;
-	a += texture(TEXTURE, UV + vec2( p.x, -p.y)).a;
-	a += texture(TEXTURE, UV + vec2(-p.x, -p.y)).a;
-
-	if (a > 0.0) {
-		COLOR = outline_color;
+	if (!enabled) {
+		COLOR = color;
 	} else {
-		COLOR = vec4(0.0);
+		vec2 size = TEXTURE_PIXEL_SIZE * line_thickness;
+
+		float outline = 0.0;
+		for (int i = 0; i < 8; i++) {
+			outline += texture(TEXTURE, UV + OFFSETS[i] * size).a;
+		}
+
+		outline = min(outline, 1.0);
+
+		COLOR = mix(color, line_color, outline - color.a);
 	}
 }
