@@ -14,7 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://dgc05q2fx6ilg" path="res://sprites/teapot.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://dkkddgxrcrifg" path="res://scripts/events/dialogue_choice.gd" id="12_w48qg"]
 [ext_resource type="Script" uid="uid://dat21hmcobdej" path="res://scripts/events/choice_event.gd" id="13_vivmo"]
+[ext_resource type="Script" uid="uid://defefeianjptd" path="res://scripts/events/wait_event.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cp4unsyp7l3t0" path="res://scenes/game_menu.tscn" id="15_vivmo"]
+[ext_resource type="Script" uid="uid://blvf4hmy4m036" path="res://scripts/events/play_sound.gd" id="16_yaehf"]
+[ext_resource type="AudioStream" uid="uid://cfm4k56sps816" path="res://sfx/ding.wav" id="17_074og"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -127,8 +130,29 @@ text = "czajnik event"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [sub_resource type="Resource" id="Resource_vivmo"]
+script = ExtResource("15_2cqfq")
+seconds = 3.0
+metadata/_custom_type_script = "uid://defefeianjptd"
+
+[sub_resource type="Resource" id="Resource_yaehf"]
+script = ExtResource("16_yaehf")
+sound = ExtResource("17_074og")
+metadata/_custom_type_script = "uid://blvf4hmy4m036"
+
+[sub_resource type="Resource" id="Resource_cegan"]
+script = ExtResource("8_kek77")
+text = "Woda gotowa!"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_82xsv"]
+script = ExtResource("8_kek77")
+text = "Otrzymujesz: Herbata x1"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_074og"]
 script = ExtResource("12_w48qg")
 text = "Tak"
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_vivmo"), SubResource("Resource_yaehf"), SubResource("Resource_cegan"), SubResource("Resource_82xsv")])
 metadata/_custom_type_script = "uid://dkkddgxrcrifg"
 
 [sub_resource type="Resource" id="Resource_2cqfq"]
@@ -139,7 +163,7 @@ metadata/_custom_type_script = "uid://dkkddgxrcrifg"
 [sub_resource type="Resource" id="Resource_w48qg"]
 script = ExtResource("13_vivmo")
 question = "Chcesz podgrzac wode na herbate?"
-choices = Array[ExtResource("12_w48qg")]([SubResource("Resource_vivmo"), SubResource("Resource_2cqfq")])
+choices = Array[ExtResource("12_w48qg")]([SubResource("Resource_074og"), SubResource("Resource_2cqfq")])
 metadata/_custom_type_script = "uid://dat21hmcobdej"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
