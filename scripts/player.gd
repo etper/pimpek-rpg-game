@@ -15,6 +15,10 @@ var highlighted: Area2D = null
 @export var right_offset := Vector2(24, 0)
 
 func _physics_process(_delta):
+	
+	if get_tree().paused:
+		return
+	
 	var ui = get_tree().current_scene.get_node("UI")
 
 	# Prevent movement while an event sequence is running

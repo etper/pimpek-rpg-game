@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dgc05q2fx6ilg" path="res://sprites/teapot.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://dkkddgxrcrifg" path="res://scripts/events/dialogue_choice.gd" id="12_w48qg"]
 [ext_resource type="Script" uid="uid://dat21hmcobdej" path="res://scripts/events/choice_event.gd" id="13_vivmo"]
+[ext_resource type="PackedScene" uid="uid://cp4unsyp7l3t0" path="res://scenes/game_menu.tscn" id="15_vivmo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -232,6 +233,8 @@ scale = Vector2(0.8, 0.84000486)
 position = Vector2(1166, 341)
 scale = Vector2(0.546875, 0.546875)
 texture = ExtResource("12_dg77c")
+
+[node name="GameMenu" parent="." unique_id=1573289332 instance=ExtResource("15_vivmo")]
 
 [editable path="Bed"]
 [editable path="Kitchen Countertop"]
