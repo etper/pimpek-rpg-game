@@ -13,11 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://43jgenmr14kj" path="res://sprites/kitchen countertop.png" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dgc05q2fx6ilg" path="res://sprites/teapot.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://dkkddgxrcrifg" path="res://scripts/events/dialogue_choice.gd" id="12_w48qg"]
+[ext_resource type="Script" uid="uid://b5ssf3oxs6qrq" path="res://scripts/events/add_item.gd" id="13_2cqfq"]
 [ext_resource type="Script" uid="uid://dat21hmcobdej" path="res://scripts/events/choice_event.gd" id="13_vivmo"]
 [ext_resource type="Script" uid="uid://defefeianjptd" path="res://scripts/events/wait_event.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cp4unsyp7l3t0" path="res://scenes/game_menu.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://blvf4hmy4m036" path="res://scripts/events/play_sound.gd" id="16_yaehf"]
 [ext_resource type="AudioStream" uid="uid://cfm4k56sps816" path="res://sfx/ding.wav" id="17_074og"]
+[ext_resource type="Script" uid="uid://e48rq7o4roy3" path="res://scripts/events/disable_interactable.gd" id="19_82xsv"]
+[ext_resource type="Texture2D" uid="uid://icrheki1yq2y" path="res://sprites/ants.png" id="21_getpj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -124,11 +127,6 @@ script = ExtResource("8_kek77")
 text = "Jak przyjemnie sie patrzy na to, co razem zbudowalismy"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
-[sub_resource type="Resource" id="Resource_ycdy4"]
-script = ExtResource("8_kek77")
-text = "czajnik event"
-metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
-
 [sub_resource type="Resource" id="Resource_vivmo"]
 script = ExtResource("15_2cqfq")
 seconds = 3.0
@@ -137,6 +135,7 @@ metadata/_custom_type_script = "uid://defefeianjptd"
 [sub_resource type="Resource" id="Resource_yaehf"]
 script = ExtResource("16_yaehf")
 sound = ExtResource("17_074og")
+volume_db = 1.0
 metadata/_custom_type_script = "uid://blvf4hmy4m036"
 
 [sub_resource type="Resource" id="Resource_cegan"]
@@ -149,10 +148,19 @@ script = ExtResource("8_kek77")
 text = "Otrzymujesz: Herbata x1"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
+[sub_resource type="Resource" id="Resource_d13ii"]
+script = ExtResource("13_2cqfq")
+item_id = "Herbata"
+metadata/_custom_type_script = "uid://b5ssf3oxs6qrq"
+
+[sub_resource type="Resource" id="Resource_getpj"]
+script = ExtResource("19_82xsv")
+metadata/_custom_type_script = "uid://e48rq7o4roy3"
+
 [sub_resource type="Resource" id="Resource_074og"]
 script = ExtResource("12_w48qg")
 text = "Tak"
-events = Array[ExtResource("7_5vw27")]([SubResource("Resource_vivmo"), SubResource("Resource_yaehf"), SubResource("Resource_cegan"), SubResource("Resource_82xsv")])
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_vivmo"), SubResource("Resource_yaehf"), SubResource("Resource_cegan"), SubResource("Resource_82xsv"), SubResource("Resource_d13ii"), SubResource("Resource_getpj")])
 metadata/_custom_type_script = "uid://dkkddgxrcrifg"
 
 [sub_resource type="Resource" id="Resource_2cqfq"]
@@ -165,6 +173,25 @@ script = ExtResource("13_vivmo")
 question = "Chcesz podgrzac wode na herbate?"
 choices = Array[ExtResource("12_w48qg")]([SubResource("Resource_074og"), SubResource("Resource_2cqfq")])
 metadata/_custom_type_script = "uid://dat21hmcobdej"
+
+[sub_resource type="Resource" id="Resource_ryguw"]
+script = ExtResource("8_kek77")
+text = "Zastanawialem sie, gdzie to zostawilem!"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_0odxb"]
+script = ExtResource("13_2cqfq")
+item_id = "Stare Skarpetki"
+metadata/_custom_type_script = "uid://b5ssf3oxs6qrq"
+
+[sub_resource type="Resource" id="Resource_1u8w0"]
+script = ExtResource("8_kek77")
+text = "Otrzymujesz: Stare Skarpetki x1"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_lswn8"]
+script = ExtResource("19_82xsv")
+metadata/_custom_type_script = "uid://e48rq7o4roy3"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
 
@@ -248,8 +275,9 @@ texture = ExtResource("11_efxa6")
 
 [node name="Teapot" parent="." unique_id=938820674 instance=ExtResource("3_h2yge")]
 position = Vector2(1164, 343)
+scale = Vector2(0.9804458, 1.0265125)
 sprite = ExtResource("12_dg77c")
-events = Array[ExtResource("7_5vw27")]([SubResource("Resource_ycdy4"), SubResource("Resource_w48qg")])
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_w48qg")])
 
 [node name="Sprite2D" parent="Teapot" index="0" unique_id=122994009]
 texture = ExtResource("12_dg77c")
@@ -262,5 +290,34 @@ scale = Vector2(0.76, 0.56000245)
 position = Vector2(-16, -1)
 scale = Vector2(0.8, 1)
 
+[node name="KitchenCountertop2" parent="." unique_id=2022065344 instance=ExtResource("3_h2yge")]
+position = Vector2(1046, 377)
+sprite = ExtResource("11_efxa6")
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_ryguw"), SubResource("Resource_0odxb"), SubResource("Resource_1u8w0"), SubResource("Resource_lswn8")])
+
+[node name="Sprite2D" parent="KitchenCountertop2" index="0" unique_id=122994009]
+texture = ExtResource("11_efxa6")
+
+[node name="Collision" parent="KitchenCountertop2/StaticBody2D" parent_id_path=PackedInt32Array(2022065344, 1564942911) index="0" unique_id=451810197]
+scale = Vector2(0.82622784, 0.4734029)
+
+[node name="InteractShape" parent="KitchenCountertop2" index="2" unique_id=931893703]
+scale = Vector2(0.7243127, 0.46538842)
+
+[node name="Ants" parent="." unique_id=531114189 instance=ExtResource("3_h2yge")]
+position = Vector2(1489, 651)
+sprite = ExtResource("21_getpj")
+
+[node name="Sprite2D" parent="Ants" index="0" unique_id=122994009]
+texture = ExtResource("21_getpj")
+
+[node name="Collision" parent="Ants/StaticBody2D" parent_id_path=PackedInt32Array(531114189, 1564942911) index="0" unique_id=451810197]
+scale = Vector2(0.43999022, 0.44)
+
+[node name="InteractShape" parent="Ants" index="2" unique_id=931893703]
+scale = Vector2(0.4748381, 0.45600843)
+
 [editable path="Bed"]
 [editable path="Teapot"]
+[editable path="KitchenCountertop2"]
+[editable path="Ants"]

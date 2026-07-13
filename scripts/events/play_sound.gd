@@ -20,5 +20,7 @@ func execute(context):
 
 	if wait_until_finished:
 		await player.finished
+	else:
+		await player.finished
 
 	player.queue_free()
