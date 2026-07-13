@@ -7,8 +7,12 @@ var facing := Vector2.DOWN
 var highlighted: Area2D = null
 
 @onready var anim = $AnimatedSprite2D
-@onready var interaction_area = $InteractionArea
+@onready var interaction_shape = $InteractionArea
 
+@export var down_offset := Vector2(0, 74)
+@export var up_offset := Vector2(0, -64)
+@export var left_offset := Vector2(-24, 0)
+@export var right_offset := Vector2(24, 0)
 
 func _physics_process(_delta):
 	var ui = get_tree().current_scene.get_node("UI")
@@ -41,7 +45,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 	# Move interaction area in front of player
-	interaction_area.position = facing * 24
+	update_interaction_position()
 
 	# Speed up animations while sprinting
 	anim.speed_scale = sprint_multiplier if Input.is_action_pressed("sprint") else 1.0
@@ -72,11 +76,10 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		interact()
 
-
 func update_highlight():
 	var target = null
 
-	for area in interaction_area.get_overlapping_areas():
+	for area in interaction_shape.get_overlapping_areas():
 		if area.has_method("interact"):
 			target = area
 			break
@@ -92,7 +95,6 @@ func update_highlight():
 	if highlighted:
 		highlighted.set_highlight(true)
 
-
 func interact():
 	velocity = Vector2.ZERO
 
@@ -104,23 +106,29 @@ func interact():
 		"walk_side":
 			anim.play("idle_side")
 
-	for area in interaction_area.get_overlapping_areas():
+	for area in interaction_shape.get_overlapping_areas():
 		if area.has_method("interact"):
 			await area.interact()
 			return
 
-	for area in interaction_area.get_overlapping_areas():
-		if area == interaction_area:
+	for area in interaction_shape.get_overlapping_areas():
+		if area == interaction_shape:
 			continue
 
 		if area.has_method("interact"):
 			await area.interact()
 			return
 
-	for body in interaction_area.get_overlapping_bodies():
+	for body in interaction_shape.get_overlapping_bodies():
 		if body == self:
 			continue
 
 		if body.has_method("interact"):
 			await body.interact()
 			return
+
+func update_interaction_position():
+	if abs(facing.x) > abs(facing.y):
+		interaction_shape.position = right_offset if facing.x > 0 else left_offset
+	else:
+		interaction_shape.position = down_offset if facing.y > 0 else up_offset
