@@ -4,6 +4,15 @@ extends CanvasLayer
 	$Panel/MarginContainer/VBoxContainer/Inventory,
 ]
 
+enum MenuState {
+	ROOT,
+	INVENTORY,
+	QUESTS,
+	MAP,
+	SETTINGS
+}
+
+var state := MenuState.ROOT
 var selected := 0
 var is_open := false
 
@@ -41,6 +50,10 @@ func _process(_delta):
 
 	elif Input.is_action_just_pressed("interact"):
 		activate()
+		
+		
+	if Input.is_action_just_pressed("cancel"):
+		go_back()
 
 func update_selection():
 	var names = [
@@ -56,6 +69,7 @@ func update_selection():
 func activate():
 	match selected:
 		0:
+			state = MenuState.INVENTORY
 			update_inventory()
 			$Panel/InventoryPanel.show()
 
@@ -72,3 +86,12 @@ func update_inventory():
 	for id in Inventory.items:
 		var amount = Inventory.items[id]
 		item_list.add_text("%s x%d\n" % [id.capitalize(), amount])
+
+func go_back():
+	match state:
+		MenuState.ROOT:
+			toggle()
+
+		MenuState.INVENTORY:
+			$Panel/InventoryPanel.hide()
+			state = MenuState.ROOT

@@ -28,6 +28,7 @@ theme_override_font_sizes/font_size = 44
 text = "INVENTORY"
 
 [node name="InventoryPanel" type="Panel" parent="Panel" unique_id=1361526563]
+visible = false
 layout_mode = 0
 offset_left = 312.0
 offset_right = 1917.0

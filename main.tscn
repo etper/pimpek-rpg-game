@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://43jgenmr14kj" path="res://sprites/kitchen countertop.png" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dgc05q2fx6ilg" path="res://sprites/teapot.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://dkkddgxrcrifg" path="res://scripts/events/dialogue_choice.gd" id="12_w48qg"]
+[ext_resource type="Script" uid="uid://b5ssf3oxs6qrq" path="res://scripts/events/add_item.gd" id="13_2cqfq"]
 [ext_resource type="Script" uid="uid://dat21hmcobdej" path="res://scripts/events/choice_event.gd" id="13_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cp4unsyp7l3t0" path="res://scenes/game_menu.tscn" id="15_vivmo"]
 
@@ -126,9 +127,15 @@ script = ExtResource("8_kek77")
 text = "czajnik event"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
+[sub_resource type="Resource" id="Resource_qdaa4"]
+script = ExtResource("13_2cqfq")
+item_id = "Herbata"
+metadata/_custom_type_script = "uid://b5ssf3oxs6qrq"
+
 [sub_resource type="Resource" id="Resource_ycdy4"]
 script = ExtResource("12_w48qg")
 text = "Tak"
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_qdaa4")])
 metadata/_custom_type_script = "uid://dkkddgxrcrifg"
 
 [sub_resource type="Resource" id="Resource_w48qg"]
@@ -235,6 +242,7 @@ scale = Vector2(0.546875, 0.546875)
 texture = ExtResource("12_dg77c")
 
 [node name="GameMenu" parent="." unique_id=1573289332 instance=ExtResource("15_vivmo")]
+visible = false
 
 [editable path="Bed"]
 [editable path="Kitchen Countertop"]
