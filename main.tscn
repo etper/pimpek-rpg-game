@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://43jgenmr14kj" path="res://sprites/kitchen countertop.png" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dgc05q2fx6ilg" path="res://sprites/teapot.png" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://dkkddgxrcrifg" path="res://scripts/events/dialogue_choice.gd" id="12_w48qg"]
-[ext_resource type="Script" uid="uid://b5ssf3oxs6qrq" path="res://scripts/events/add_item.gd" id="13_2cqfq"]
 [ext_resource type="Script" uid="uid://dat21hmcobdej" path="res://scripts/events/choice_event.gd" id="13_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cp4unsyp7l3t0" path="res://scenes/game_menu.tscn" id="15_vivmo"]
 
@@ -122,31 +121,25 @@ script = ExtResource("8_kek77")
 text = "Jak przyjemnie sie patrzy na to, co razem zbudowalismy"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
-[sub_resource type="Resource" id="Resource_efxa6"]
+[sub_resource type="Resource" id="Resource_ycdy4"]
 script = ExtResource("8_kek77")
 text = "czajnik event"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
-[sub_resource type="Resource" id="Resource_qdaa4"]
-script = ExtResource("13_2cqfq")
-item_id = "Herbata"
-metadata/_custom_type_script = "uid://b5ssf3oxs6qrq"
-
-[sub_resource type="Resource" id="Resource_ycdy4"]
+[sub_resource type="Resource" id="Resource_vivmo"]
 script = ExtResource("12_w48qg")
 text = "Tak"
-events = Array[ExtResource("7_5vw27")]([SubResource("Resource_qdaa4")])
 metadata/_custom_type_script = "uid://dkkddgxrcrifg"
 
-[sub_resource type="Resource" id="Resource_w48qg"]
+[sub_resource type="Resource" id="Resource_2cqfq"]
 script = ExtResource("12_w48qg")
 text = "Nie"
 metadata/_custom_type_script = "uid://dkkddgxrcrifg"
 
-[sub_resource type="Resource" id="Resource_dg77c"]
+[sub_resource type="Resource" id="Resource_w48qg"]
 script = ExtResource("13_vivmo")
 question = "Chcesz podgrzac wode na herbate?"
-choices = Array[ExtResource("12_w48qg")]([SubResource("Resource_ycdy4"), SubResource("Resource_w48qg")])
+choices = Array[ExtResource("12_w48qg")]([SubResource("Resource_vivmo"), SubResource("Resource_2cqfq")])
 metadata/_custom_type_script = "uid://dat21hmcobdej"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
@@ -222,27 +215,28 @@ position = Vector2(760, 234)
 sprite = ExtResource("9_kek77")
 events = Array[ExtResource("7_5vw27")]([SubResource("Resource_kek77")])
 
-[node name="Kitchen Countertop" parent="." unique_id=2044270947 instance=ExtResource("3_h2yge")]
-position = Vector2(1148, 377)
-sprite = ExtResource("11_efxa6")
-events = Array[ExtResource("7_5vw27")]([SubResource("Resource_efxa6"), SubResource("Resource_dg77c")])
-
-[node name="Sprite2D" parent="Kitchen Countertop" index="0" unique_id=122994009]
-texture = ExtResource("11_efxa6")
-
-[node name="Collision" parent="Kitchen Countertop/StaticBody2D" parent_id_path=PackedInt32Array(2044270947, 1564942911) index="0" unique_id=451810197]
-scale = Vector2(0.8000097, 0.36000726)
-
-[node name="InteractShape" parent="Kitchen Countertop" index="2" unique_id=931893703]
-scale = Vector2(0.8, 0.84000486)
-
-[node name="Teapot" type="Sprite2D" parent="." unique_id=390515552]
-position = Vector2(1166, 341)
-scale = Vector2(0.546875, 0.546875)
-texture = ExtResource("12_dg77c")
-
 [node name="GameMenu" parent="." unique_id=1573289332 instance=ExtResource("15_vivmo")]
 visible = false
 
+[node name="KitchenCountertop" type="Sprite2D" parent="." unique_id=237200215]
+position = Vector2(1148, 377)
+texture = ExtResource("11_efxa6")
+
+[node name="Teapot" parent="." unique_id=938820674 instance=ExtResource("3_h2yge")]
+position = Vector2(1164, 343)
+sprite = ExtResource("12_dg77c")
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_ycdy4"), SubResource("Resource_w48qg")])
+
+[node name="Sprite2D" parent="Teapot" index="0" unique_id=122994009]
+texture = ExtResource("12_dg77c")
+
+[node name="Collision" parent="Teapot/StaticBody2D" parent_id_path=PackedInt32Array(938820674, 1564942911) index="0" unique_id=451810197]
+position = Vector2(-14, -1)
+scale = Vector2(0.76, 0.56000245)
+
+[node name="InteractShape" parent="Teapot" index="2" unique_id=931893703]
+position = Vector2(-16, -1)
+scale = Vector2(0.8, 1)
+
 [editable path="Bed"]
-[editable path="Kitchen Countertop"]
+[editable path="Teapot"]

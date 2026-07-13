@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbgwexn3egno0"]
 
 [ext_resource type="Script" uid="uid://dwmpyn4ib731t" path="res://scripts/interactable.gd" id="1_msfch"]
-[ext_resource type="Shader" uid="uid://whiq838q40tq" path="res://scenes/Interactable.gdshader" id="2_0iwdk"]
+[ext_resource type="Shader" uid="uid://whiq838q40tq" path="res://Interactable.gdshader" id="2_0iwdk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efa16"]
 shader = ExtResource("2_0iwdk")
