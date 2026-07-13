@@ -17,7 +17,6 @@ animation = &"walk_up"
 [node name="InteractionArea" type="Area2D" parent="." unique_id=103461104]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=346552234]
-position = Vector2(1, 102)
 shape = SubResource("RectangleShape2D_vkqoe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711881929]

@@ -71,12 +71,35 @@ func _physics_process(_delta):
 		interact()
 
 func interact():
+	
+	velocity = Vector2.ZERO
+
+	match anim.animation:
+		"walk_down":
+			anim.play("idle_down")
+		"walk_up":
+			anim.play("idle_up")
+		"walk_side":
+			anim.play("idle_side")
+
 	for area in interaction_area.get_overlapping_areas():
+		if area.has_method("interact"):
+			await area.interact()
+			return
+			
+			
+	for area in interaction_area.get_overlapping_areas():
+		if area == interaction_area:
+			continue
+
 		if area.has_method("interact"):
 			await area.interact()
 			return
 
 	for body in interaction_area.get_overlapping_bodies():
+		if body == self:
+			continue
+
 		if body.has_method("interact"):
 			await body.interact()
 			return

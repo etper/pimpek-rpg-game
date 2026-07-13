@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://d1keqk14kj4om" path="res://tilesets/room_tiles.png" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://d3e4optw0tb3" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://delvtvrc53ses" path="res://scripts/player.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://scripts/dialogue.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="5_272bh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -100,6 +103,11 @@ texture = ExtResource("1_5vw27")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_5vw27")
 
+[sub_resource type="Resource" id="Resource_3vyb7"]
+script = ExtResource("5_272bh")
+text = "sex"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
 [node name="Main" type="Node2D" unique_id=1148531345]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=688064548]
@@ -123,6 +131,7 @@ offset_bottom = 961.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox" unique_id=604527061]
 layout_mode = 0
+offset_left = 24.0
 offset_right = 1597.0
 offset_bottom = 182.0
 
@@ -132,3 +141,7 @@ theme_override_font_sizes/font_size = 70
 text = "SEX"
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Interactable" parent="." unique_id=73629740 instance=ExtResource("3_h2yge")]
+position = Vector2(457, 459)
+events = Array[ExtResource("4_lquwl")]([SubResource("Resource_3vyb7")])
