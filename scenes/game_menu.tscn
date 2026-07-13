@@ -19,8 +19,21 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1876141184]
 layout_mode = 2
+theme_override_font_sizes/font_size = 44
 text = "GAME MENU"
 
 [node name="Inventory" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1004645893]
 layout_mode = 2
+theme_override_font_sizes/font_size = 44
 text = "INVENTORY"
+
+[node name="InventoryPanel" type="Panel" parent="Panel" unique_id=1361526563]
+layout_mode = 0
+offset_left = 312.0
+offset_right = 1917.0
+offset_bottom = 1080.0
+
+[node name="ItemList" type="RichTextLabel" parent="Panel/InventoryPanel" unique_id=953966143]
+layout_mode = 0
+offset_right = 1608.0
+offset_bottom = 1075.0

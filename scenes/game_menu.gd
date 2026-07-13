@@ -7,8 +7,11 @@ extends CanvasLayer
 var selected := 0
 var is_open := false
 
+@onready var item_list = $Panel/InventoryPanel/ItemList
+
 func _ready():
 	hide()
+	Inventory.inventory_changed.connect(update_inventory)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("menu"):
@@ -53,10 +56,19 @@ func update_selection():
 func activate():
 	match selected:
 		0:
-			print("Inventory")
+			update_inventory()
+			$Panel/InventoryPanel.show()
+
 		1:
-			print("Quests")
-		2:
-			print("Map")
-		3:
-			print("Settings")
+			$Panel/InventoryPanel.hide()
+
+func update_inventory():
+	item_list.clear()
+
+	if Inventory.items.is_empty():
+		item_list.add_text("Inventory is empty.")
+		return
+
+	for id in Inventory.items:
+		var amount = Inventory.items[id]
+		item_list.add_text("%s x%d\n" % [id.capitalize(), amount])
