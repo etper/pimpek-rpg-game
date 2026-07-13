@@ -5,6 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(96, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
+size = Vector2(85, 155)
+
 [node name="Player" type="CharacterBody2D" unique_id=679463758]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=776353048]
@@ -16,3 +19,7 @@ animation = &"walk_up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=346552234]
 position = Vector2(1, 102)
 shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711881929]
+position = Vector2(-2.5, 3.5)
+shape = SubResource("RectangleShape2D_co6qv")
