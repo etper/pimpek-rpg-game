@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://delvtvrc53ses" path="res://scripts/player.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://scripts/dialogue.gd" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="4_lquwl"]
-[ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://cpl3rdfirur6m" path="res://sprites/bed.png" id="6_5vw27"]
+[ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="8_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -103,9 +104,9 @@ texture = ExtResource("1_5vw27")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_5vw27")
 
-[sub_resource type="Resource" id="Resource_3vyb7"]
-script = ExtResource("5_272bh")
-text = "sex"
+[sub_resource type="Resource" id="Resource_7mycd"]
+script = ExtResource("8_kek77")
+text = "Im not sleepy"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
@@ -115,6 +116,7 @@ tile_map_data = PackedByteArray("AAAhAB8AAgACAAAAAAAhACAAAgACAAEAAAAhACEAAgACAAI
 tile_set = SubResource("TileSet_vkqoe")
 
 [node name="Player" parent="." unique_id=679463758 instance=ExtResource("1_ig7tw")]
+z_index = 1
 position = Vector2(733, 488)
 script = ExtResource("2_0xm2m")
 
@@ -143,5 +145,17 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Interactable" parent="." unique_id=73629740 instance=ExtResource("3_h2yge")]
-position = Vector2(457, 459)
-events = Array[ExtResource("4_lquwl")]([SubResource("Resource_3vyb7")])
+position = Vector2(416, 456)
+sprite = ExtResource("6_5vw27")
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_7mycd")])
+
+[node name="Sprite2D" parent="Interactable" index="0" unique_id=122994009]
+texture = ExtResource("6_5vw27")
+
+[node name="CollisionShape2D" parent="Interactable/StaticBody2D" parent_id_path=PackedInt32Array(73629740, 1564942911) index="0" unique_id=451810197]
+scale = Vector2(0.85624695, 1.4916242)
+
+[node name="CollisionShape2D" parent="Interactable" index="2" unique_id=931893703]
+scale = Vector2(0.89208364, 1.4976672)
+
+[editable path="Interactable"]

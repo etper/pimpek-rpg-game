@@ -6,7 +6,7 @@
 size = Vector2(96, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
-size = Vector2(85, 155)
+size = Vector2(75, 143)
 
 [node name="Player" type="CharacterBody2D" unique_id=679463758]
 
