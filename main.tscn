@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d3e4optw0tb3" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://delvtvrc53ses" path="res://scripts/player.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://dialogue.gd" id="4_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=1148531345]
 
@@ -12,3 +13,26 @@ script = ExtResource("2_0xm2m")
 
 [node name="Interactable" parent="." unique_id=497211360 instance=ExtResource("3_h2yge")]
 position = Vector2(222, 362)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=641810485]
+script = ExtResource("4_1bvp3")
+
+[node name="DialogueBox" type="Panel" parent="UI" unique_id=728410776]
+visible = false
+custom_maximum_size = Vector2(1600, 180)
+offset_left = 27.0
+offset_top = 781.0
+offset_right = 1899.0
+offset_bottom = 1061.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox" unique_id=604527061]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI/DialogueBox/MarginContainer" unique_id=1815239886]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "SEX"
+vertical_alignment = 1
+autowrap_mode = 2

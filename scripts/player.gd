@@ -9,6 +9,14 @@ var facing := Vector2.DOWN
 @onready var interaction_area = $InteractionArea
 
 func _physics_process(_delta):
+	
+	var ui = get_tree().current_scene.get_node("UI")
+
+	if ui.box.visible:
+		if Input.is_action_just_pressed("interact"):
+			ui.hide_dialogue()
+		return
+	
 	var direction = Input.get_vector(
 		"move_left",
 		"move_right",
@@ -55,7 +63,10 @@ func _physics_process(_delta):
 
 	# Interact
 	if Input.is_action_just_pressed("interact"):
-		interact()
+		if ui.box.visible:
+			ui.hide_dialogue()
+		else:
+			interact()
 
 func interact():
 	for area in interaction_area.get_overlapping_areas():
