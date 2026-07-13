@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var speed := 200.0
+@export var walk_speed := 200.0
+@export var sprint_multiplier := 1.8
 
 var facing := Vector2.DOWN
 
@@ -18,11 +19,18 @@ func _physics_process(_delta):
 	if direction != Vector2.ZERO:
 		facing = direction.normalized()
 
-	velocity = direction * speed
+	var current_speed = walk_speed
+	if Input.is_action_pressed("sprint"):
+		current_speed *= sprint_multiplier
+
+	velocity = direction * current_speed
 	move_and_slide()
 
 	# Move interaction area in front of player
 	interaction_area.position = facing * 24
+
+	# Speed up animations while sprinting
+	anim.speed_scale = sprint_multiplier if Input.is_action_pressed("sprint") else 1.0
 
 	# Animations
 	if direction == Vector2.ZERO:
