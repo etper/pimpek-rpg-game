@@ -9,14 +9,19 @@ var facing := Vector2.DOWN
 @onready var interaction_area = $InteractionArea
 
 func _physics_process(_delta):
-	
 	var ui = get_tree().current_scene.get_node("UI")
 
-	if ui.box.visible:
-		if Input.is_action_just_pressed("interact"):
+	# Prevent movement while an event sequence is running
+	if EventRunner.busy:
+		velocity = Vector2.ZERO
+		move_and_slide()
+
+		# Still allow closing dialogue if it's open
+		if ui.box.visible and Input.is_action_just_pressed("interact"):
 			ui.hide_dialogue()
+
 		return
-	
+
 	var direction = Input.get_vector(
 		"move_left",
 		"move_right",
@@ -63,10 +68,7 @@ func _physics_process(_delta):
 
 	# Interact
 	if Input.is_action_just_pressed("interact"):
-		if ui.box.visible:
-			ui.hide_dialogue()
-		else:
-			interact()
+		interact()
 
 func interact():
 	for area in interaction_area.get_overlapping_areas():
