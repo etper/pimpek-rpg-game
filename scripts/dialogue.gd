@@ -3,11 +3,11 @@ extends CanvasLayer
 signal choice_selected(index)
 
 @onready var box = $DialogueBox
-@onready var label = $DialogueBox/MarginContainer/Label
-@onready var options_label = $DialogueBox/MarginContainer/OptionsLabel
+@onready var label = $DialogueBox/MarginContainer/VBoxContainer/Label
+@onready var options_label = $DialogueBox/MarginContainer/VBoxContainer/OptionsLabel
 
 @export var letters_per_second := 40.0
-@export var cursor := "▶ "
+@export var cursor := " ▶ "
 
 var finished := false
 
