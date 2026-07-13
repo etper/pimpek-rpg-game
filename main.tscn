@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpl3rdfirur6m" path="res://sprites/bed.png" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://b3rq65ifbyo20" path="res://sprites/window.png" id="9_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -106,7 +107,12 @@ sources/2 = SubResource("TileSetAtlasSource_5vw27")
 
 [sub_resource type="Resource" id="Resource_7mycd"]
 script = ExtResource("8_kek77")
-text = "Im not sleepy"
+text = "Nie jestem spiacy"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_kek77"]
+script = ExtResource("8_kek77")
+text = "Coz za piekny dzien!"
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
@@ -125,11 +131,10 @@ script = ExtResource("4_1bvp3")
 
 [node name="DialogueBox" type="Panel" parent="UI" unique_id=728410776]
 visible = false
-custom_maximum_size = Vector2(1600, 180)
 offset_left = 27.0
 offset_top = 781.0
-offset_right = 1627.0
-offset_bottom = 961.0
+offset_right = 1889.0
+offset_bottom = 1047.0
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox" unique_id=604527061]
 layout_mode = 0
@@ -157,5 +162,10 @@ scale = Vector2(0.85624695, 1.4916242)
 
 [node name="CollisionShape2D" parent="Bed" index="2" unique_id=931893703]
 scale = Vector2(0.89208364, 1.4976672)
+
+[node name="Window" parent="." unique_id=1726131768 instance=ExtResource("3_h2yge")]
+position = Vector2(760, 234)
+sprite = ExtResource("9_kek77")
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_kek77")])
 
 [editable path="Bed"]

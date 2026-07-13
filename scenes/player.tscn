@@ -12,7 +12,7 @@ size = Vector2(75, 143)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=776353048]
 sprite_frames = ExtResource("1_4flbx")
-animation = &"walk_up"
+animation = &"idle_down"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=103461104]
 
