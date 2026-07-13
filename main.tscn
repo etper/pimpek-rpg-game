@@ -155,7 +155,7 @@ texture = ExtResource("6_5vw27")
 [node name="CollisionShape2D" parent="Bed/StaticBody2D" parent_id_path=PackedInt32Array(73629740, 1564942911) index="0" unique_id=451810197]
 scale = Vector2(0.85624695, 1.4916242)
 
-[node name="CollisionShape2D" parent="Bed" index="3" unique_id=931893703]
+[node name="CollisionShape2D" parent="Bed" index="2" unique_id=931893703]
 scale = Vector2(0.89208364, 1.4976672)
 
 [editable path="Bed"]

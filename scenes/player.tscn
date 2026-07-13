@@ -3,7 +3,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dpxvr6jaeing" path="res://pimpek_frames.tres" id="1_4flbx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
-size = Vector2(96, 42)
+size = Vector2(62, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
 size = Vector2(75, 143)

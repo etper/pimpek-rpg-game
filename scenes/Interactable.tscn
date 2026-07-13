@@ -6,8 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efa16"]
 shader = ExtResource("2_0iwdk")
 shader_parameter/enabled = false
-shader_parameter/line_color = Color(1, 1, 0, 1)
-shader_parameter/line_thickness = 1.0
+shader_parameter/line_color = Color(0.97902936, 0.9432395, 0.99999994, 1)
+shader_parameter/line_thickness = 5.0000002375
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iwdk"]
 size = Vector2(132, 132)

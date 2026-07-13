@@ -23,8 +23,7 @@ func _ready():
 
 
 func set_highlight(value: bool):
-	if material:
-		material.set_shader_parameter("enabled", value)
+	pass
 
 
 func interact():
