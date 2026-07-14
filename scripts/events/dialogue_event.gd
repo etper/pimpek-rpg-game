@@ -14,3 +14,6 @@ func execute(context):
 			ui.hide_dialogue()
 
 		await tree.process_frame
+
+func get_display_name() -> String:
+	return "Dialogue"

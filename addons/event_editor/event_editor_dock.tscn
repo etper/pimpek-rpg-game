@@ -9,9 +9,14 @@ script = ExtResource("1_uqy8r")
 layout_mode = 2
 text = "EVENT EDITOR"
 
-[node name="ItemList" type="ItemList" parent="." unique_id=793774355]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1385506446]
+layout_mode = 2
+
+[node name="EventList" type="VBoxContainer" parent="ScrollContainer" unique_id=447202231]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="." unique_id=857013531]
 layout_mode = 2
 text = "+ Add Event"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

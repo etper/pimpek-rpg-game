@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://cfm4k56sps816" path="res://sfx/ding.wav" id="17_074og"]
 [ext_resource type="Script" uid="uid://e48rq7o4roy3" path="res://scripts/events/disable_interactable.gd" id="19_82xsv"]
 [ext_resource type="Texture2D" uid="uid://icrheki1yq2y" path="res://sprites/ants.png" id="21_getpj"]
+[ext_resource type="PackedScene" uid="uid://chruka3new4o" path="res://addons/event_editor/event_editor_dock.tscn" id="23_d13ii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -194,6 +195,9 @@ metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 script = ExtResource("19_82xsv")
 metadata/_custom_type_script = "uid://e48rq7o4roy3"
 
+[sub_resource type="Resource" id="Resource_a6jrf"]
+script = ExtResource("8_kek77")
+
 [node name="Main" type="Node2D" unique_id=1148531345]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=688064548]
@@ -321,6 +325,13 @@ scale = Vector2(0.4748381, 0.45600843)
 
 [node name="Interactable" parent="." unique_id=1740327011 instance=ExtResource("3_h2yge")]
 position = Vector2(632, 1300)
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_a6jrf")])
+
+[node name="EventEditorDock" parent="." unique_id=1432742001 instance=ExtResource("23_d13ii")]
+offset_left = 949.0
+offset_top = 664.0
+offset_right = 1317.0
+offset_bottom = 827.0
 
 [editable path="Bed"]
 [editable path="Teapot"]

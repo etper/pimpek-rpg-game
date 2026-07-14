@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dqy7ldvx2nec1"]
+
+[node name="EventRow" type="HBoxContainer" unique_id=211550182]
+
+[node name="Name" type="Label" parent="." unique_id=721496583]
+layout_mode = 2
+text = "Dialogue"
+
+[node name="Up" type="Button" parent="." unique_id=1700481460]
+layout_mode = 2
+text = "↑"
+
+[node name="Down" type="Button" parent="." unique_id=497322621]
+layout_mode = 2
+text = "↓"
+
+[node name="Delete" type="Button" parent="." unique_id=216785354]
+layout_mode = 2
+text = "✖"

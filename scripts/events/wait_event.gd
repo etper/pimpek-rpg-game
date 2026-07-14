@@ -5,3 +5,6 @@ class_name WaitEvent
 
 func execute(context):
 	await context.get_tree().create_timer(seconds).timeout
+
+func get_display_name() -> String:
+	return "Wait"
