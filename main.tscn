@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://delvtvrc53ses" path="res://scripts/player.gd" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://scripts/dialogue.gd" id="4_1bvp3"]
-[ext_resource type="Resource" uid="uid://4leqjrogq5n8" path="res://battle/resources/enemies/ant.tres" id="4_ryguw"]
 [ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="5_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cpl3rdfirur6m" path="res://sprites/bed.png" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="7_5vw27"]
@@ -208,7 +207,6 @@ tile_set = SubResource("TileSet_vkqoe")
 z_index = 1
 position = Vector2(733, 488)
 script = ExtResource("2_0xm2m")
-test_enemy = ExtResource("4_ryguw")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=641810485]
 script = ExtResource("4_1bvp3")
