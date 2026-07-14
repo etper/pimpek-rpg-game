@@ -1,11 +1,18 @@
 @tool
 extends EditorPlugin
 
-var inspector_plugin
+var dock
 
 func _enter_tree():
-	inspector_plugin = preload("res://addons/event_editor/event_array_editor.gd").new()
-	add_inspector_plugin(inspector_plugin)
+	dock = preload("res://addons/event_editor/event_editor_dock.tscn").instantiate()
+
+	dock.plugin = self
+
+	add_control_to_dock(
+		EditorPlugin.DOCK_SLOT_RIGHT_UL,
+		dock
+	)
 
 func _exit_tree():
-	remove_inspector_plugin(inspector_plugin)
+	remove_control_from_docks(dock)
+	dock.queue_free()

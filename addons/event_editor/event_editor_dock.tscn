@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://chruka3new4o"]
+
+[ext_resource type="Script" uid="uid://dfm4shmcw2fa5" path="res://addons/event_editor/event_editor_dock.gd" id="1_uqy8r"]
+
+[node name="EventEditorDock" type="VBoxContainer" unique_id=1432742001]
+script = ExtResource("1_uqy8r")
+
+[node name="Label" type="Label" parent="." unique_id=1709310932]
+layout_mode = 2
+text = "EVENT EDITOR"
+
+[node name="ItemList" type="ItemList" parent="." unique_id=793774355]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=857013531]
+layout_mode = 2
+text = "+ Add Event"
