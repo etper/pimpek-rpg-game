@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cfm4k56sps816" path="res://sfx/ding.wav" id="17_074og"]
 [ext_resource type="Script" uid="uid://e48rq7o4roy3" path="res://scripts/events/disable_interactable.gd" id="19_82xsv"]
 [ext_resource type="Texture2D" uid="uid://icrheki1yq2y" path="res://sprites/ants.png" id="21_getpj"]
+[ext_resource type="Script" uid="uid://bkgurhpwesdqe" path="res://scripts/events/start_battle.gd" id="22_ryguw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -193,6 +194,15 @@ metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 script = ExtResource("19_82xsv")
 metadata/_custom_type_script = "uid://e48rq7o4roy3"
 
+[sub_resource type="Resource" id="Resource_a6jrf"]
+script = ExtResource("8_kek77")
+text = "dymamy sie"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_xuqvo"]
+script = ExtResource("22_ryguw")
+metadata/_custom_type_script = "uid://bkgurhpwesdqe"
+
 [node name="Main" type="Node2D" unique_id=1148531345]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=688064548]
@@ -307,6 +317,7 @@ scale = Vector2(0.7243127, 0.46538842)
 [node name="Ants" parent="." unique_id=531114189 instance=ExtResource("3_h2yge")]
 position = Vector2(1489, 651)
 sprite = ExtResource("21_getpj")
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_a6jrf"), SubResource("Resource_xuqvo")])
 
 [node name="Sprite2D" parent="Ants" index="0" unique_id=122994009]
 texture = ExtResource("21_getpj")

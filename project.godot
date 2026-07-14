@@ -19,6 +19,7 @@ config/icon="res://sprites/icon.svg"
 
 EventRunner="*uid://hwcvsfkek6f4"
 Inventory="*uid://d3koguofjilg7"
+BattleManager="*uid://k6wjebqyec2m"
 
 [display]
 
@@ -29,7 +30,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/event_editor/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

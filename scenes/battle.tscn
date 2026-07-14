@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dxdlji4a0pnnd"]
+
+[ext_resource type="Script" uid="uid://blp7jgnrmmlkq" path="res://scenes/battle.gd" id="1_dn72j"]
+
+[node name="Battle" type="Node2D" unique_id=1948304045]
+script = ExtResource("1_dn72j")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=497925486]
+offset_right = 1942.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1612987038]
+offset_left = 668.0
+offset_top = 226.0
+offset_right = 988.0
+offset_bottom = 354.0
+text = "Battle!"
+
+[node name="Button" type="Button" parent="." unique_id=83395723]
+offset_left = 479.0
+offset_top = 423.0
+offset_right = 772.0
+offset_bottom = 577.0
+text = "End Battle"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
