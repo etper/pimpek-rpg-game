@@ -24,11 +24,19 @@ func show_dialogue(text: String):
 	label.text = ""
 	finished = false
 
+	var char_count := 0
+
 	for c in text:
 		label.text += c
 
+		if c != " " and c != "\n":
+			char_count += 1
+
+			if char_count % 2 == 0:
+				SoundManager.play_text()
+
 		var speed = letters_per_second
-		if Input.is_action_pressed("sprint"): # LSHIFT
+		if Input.is_action_pressed("sprint"):
 			speed *= fast_text_multiplier
 
 		await get_tree().create_timer(1.0 / speed).timeout

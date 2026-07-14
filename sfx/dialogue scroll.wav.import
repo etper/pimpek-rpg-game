@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blrxcbfi2uwu3"
+path="res://.godot/imported/dialogue scroll.wav-24a3d4c52e14d039c2c13855d8d3ce0e.sample"
+
+[deps]
+
+source_file="res://sfx/dialogue scroll.wav"
+dest_files=["res://.godot/imported/dialogue scroll.wav-24a3d4c52e14d039c2c13855d8d3ce0e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
