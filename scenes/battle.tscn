@@ -31,6 +31,13 @@ offset_right = 619.0
 offset_bottom = 424.0
 text = "HP: 10"
 
+[node name="EnemyHPLabel" type="Label" parent="." unique_id=1980030596]
+offset_left = 1248.0
+offset_top = 277.0
+offset_right = 1568.0
+offset_bottom = 405.0
+text = "HP: 10"
+
 [node name="Menu" type="VBoxContainer" parent="." unique_id=490859147]
 offset_left = 257.0
 offset_top = 565.0

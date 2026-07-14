@@ -8,11 +8,14 @@ extends Node2D
 
 @onready var hp_label = $HPLabel
 
+@onready var enemy_hp_label = $EnemyHPLabel
+
 var selected := 0
 
 func _ready():
 	update_menu()
 	update_hp()
+	update_enemy_hp()
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("move_down"):
@@ -39,7 +42,7 @@ func update_menu():
 func choose_option():
 	match selected:
 		0:
-			print("Attack")
+			attack_enemy()
 		1:
 			print("Item")
 		2:
@@ -50,3 +53,26 @@ func update_hp():
 		PlayerStats.stats.hp,
 		PlayerStats.stats.max_hp
 	]
+
+func update_enemy_hp():
+	enemy_hp_label.text = "Enemy HP: %d/%d" % [
+		BattleManager.enemy_stats.hp,
+		BattleManager.enemy_stats.max_hp
+	]
+
+func attack_enemy():
+	var player = PlayerStats.stats
+	var enemy = BattleManager.enemy_stats
+
+	var damage = max(player.attack - enemy.defense, 1)
+
+	enemy.hp -= damage
+	enemy.hp = max(enemy.hp, 0)
+
+	update_enemy_hp()
+
+	print("Dealt %d damage!" % damage)
+
+	if enemy.hp <= 0:
+		print("Enemy defeated!")
+		BattleManager.end_battle()
