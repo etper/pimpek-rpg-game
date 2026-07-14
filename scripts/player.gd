@@ -17,6 +17,8 @@ var highlighted: Area2D = null
 @onready var footstep = $FootstepPlayer
 @onready var interact_sfx = $InteractPlayer
 
+var interaction_locked := false
+
 func _ready():
 	anim.frame_changed.connect(_on_frame_changed)
 
@@ -106,6 +108,8 @@ func update_highlight():
 		highlighted.set_highlight(true)
 
 func interact():
+	interaction_locked = true
+
 	velocity = Vector2.ZERO
 
 	match anim.animation:
@@ -120,25 +124,10 @@ func interact():
 		if area.has_method("interact"):
 			interact_sfx.play()
 			await area.interact()
-			return
+			break
 
-	for area in interaction_shape.get_overlapping_areas():
-		if area == interaction_shape:
-			continue
-
-		if area.has_method("interact"):
-			interact_sfx.play()
-			await area.interact()
-			return
-
-	for body in interaction_shape.get_overlapping_bodies():
-		if body == self:
-			continue
-
-		if body.has_method("interact"):
-			interact_sfx.play()
-			await body.interact()
-			return
+	await get_tree().process_frame
+	interaction_locked = false
 
 func update_interaction_position():
 	if abs(facing.x) > abs(facing.y):

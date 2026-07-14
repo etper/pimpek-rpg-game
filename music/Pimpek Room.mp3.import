@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwbeb101n35n5"
+path="res://.godot/imported/Pimpek Room.mp3-1da4c013c0aa9836cb2b788c32bd27bd.mp3str"
+
+[deps]
+
+source_file="res://music/Pimpek Room.mp3"
+dest_files=["res://.godot/imported/Pimpek Room.mp3-1da4c013c0aa9836cb2b788c32bd27bd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
