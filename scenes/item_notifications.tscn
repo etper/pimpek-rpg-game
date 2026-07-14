@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bmceh7bop7par"]
+
+[ext_resource type="Script" uid="uid://boleipx00a6l1" path="res://scenes/item_notifications.gd" id="1_x8ro1"]
+
+[node name="ItemNotifications" type="CanvasLayer" unique_id=296417052]
+script = ExtResource("1_x8ro1")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1519732727]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="List" type="VBoxContainer" parent="Margin" unique_id=1032177362]
+layout_mode = 2

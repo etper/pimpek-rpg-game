@@ -23,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://icrheki1yq2y" path="res://sprites/ants.png" id="21_getpj"]
 [ext_resource type="Resource" uid="uid://c6u5ajvayp0x6" path="res://enemies/ant.tres" id="22_d13ii"]
 [ext_resource type="Script" uid="uid://bkgurhpwesdqe" path="res://scripts/events/start_battle.gd" id="22_ryguw"]
+[ext_resource type="PackedScene" uid="uid://bmceh7bop7par" path="res://scenes/item_notifications.tscn" id="24_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://c15nwfobh8g2g" path="res://sprites/player_placeholder.png" id="25_lswn8"]
+[ext_resource type="Script" uid="uid://bukwlb3ropmuc" path="res://scripts/events/remove_item.gd" id="26_a6jrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -205,6 +208,17 @@ script = ExtResource("22_ryguw")
 enemy = ExtResource("22_d13ii")
 metadata/_custom_type_script = "uid://bkgurhpwesdqe"
 
+[sub_resource type="Resource" id="Resource_2t1bs"]
+script = ExtResource("8_kek77")
+text = "haha
+jestem zlodziejem!"
+metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
+
+[sub_resource type="Resource" id="Resource_tp5bc"]
+script = ExtResource("26_a6jrf")
+item_id = "Stare Skarpetki"
+metadata/_custom_type_script = "uid://bukwlb3ropmuc"
+
 [node name="Main" type="Node2D" unique_id=1148531345]
 
 [node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=701678097]
@@ -333,6 +347,13 @@ scale = Vector2(0.43999022, 0.44)
 
 [node name="InteractShape" parent="Ants" index="2" unique_id=931893703]
 scale = Vector2(0.4748381, 0.45600843)
+
+[node name="ItemNotifications" parent="." unique_id=296417052 instance=ExtResource("24_1u8w0")]
+
+[node name="Interactable" parent="." unique_id=384747797 instance=ExtResource("3_h2yge")]
+position = Vector2(820, 671)
+sprite = ExtResource("25_lswn8")
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_2t1bs"), SubResource("Resource_tp5bc")])
 
 [editable path="Bed"]
 [editable path="Teapot"]

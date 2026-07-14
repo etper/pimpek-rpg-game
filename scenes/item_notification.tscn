@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bkm41w156u5nx"]
+
+[ext_resource type="Script" uid="uid://bvjw8bcl6re2y" path="res://scenes/item_notification.gd" id="1_2t1bs"]
+
+[node name="ItemNotification" type="Panel" unique_id=1153881276]
+custom_minimum_size = Vector2(300, 48)
+script = ExtResource("1_2t1bs")
+
+[node name="Hbox" type="HBoxContainer" parent="." unique_id=675628545]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="Hbox" unique_id=14128574]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Hbox" unique_id=1572428402]
+layout_mode = 2
+text = "Got Potion x3"
