@@ -34,7 +34,12 @@ var selected := 0
 var item_ids = []
 var item_selected = 0
 
+@onready var enemy_name = $EnemyName
+@onready var enemy_sprite = $EnemySprite
+
 func _ready():
+	enemy_name.text = BattleManager.enemy_data.name
+	enemy_sprite.texture = BattleManager.enemy_data.sprite
 	update_menu()
 	update_hp()
 	update_enemy_hp()
@@ -128,7 +133,11 @@ func attack_enemy():
 	if enemy.hp <= 0:
 		print("Enemy defeated!")
 		print("Victory!")
-		# TODO: give rewards
+
+		print("Gained %d XP!" % BattleManager.enemy_data.xp)
+
+		for item in BattleManager.enemy_data.drops:
+			Inventory.add_item(item)
 
 		BattleManager.end_battle(BattleManager.BattleResult.WIN)
 		return

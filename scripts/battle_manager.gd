@@ -7,6 +7,9 @@ var overworld_scene: Node = null
 var battle_scene: Node = null
 var in_battle := false
 
+var enemy_data: EnemyData
+var enemy_stats: CharacterStats
+
 const BATTLE_SCENE = preload("res://scenes/battle.tscn")
 
 enum BattleResult {
@@ -17,18 +20,12 @@ enum BattleResult {
 
 var last_result := BattleResult.WIN
 
-var enemy_stats: CharacterStats
-
-func start_battle():
+func start_battle(enemy: EnemyData):
 	if in_battle:
 		return
 
-	enemy_stats = CharacterStats.new()
-	enemy_stats.max_hp = 15
-	enemy_stats.hp = 15
-	enemy_stats.attack = 4
-	enemy_stats.defense = 1
-	enemy_stats.speed = 3
+	enemy_data = enemy
+	enemy_stats = enemy.stats.duplicate(true)
 
 	in_battle = true
 

@@ -78,3 +78,6 @@ text = "Run"
 [node name="Item3" type="Label" parent="ItemMenu" unique_id=928258471]
 layout_mode = 2
 text = "Run"
+
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=892270464]
+position = Vector2(1368, 216)
