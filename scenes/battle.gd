@@ -6,10 +6,13 @@ extends Node2D
 	$Menu/Run,
 ]
 
+@onready var hp_label = $HPLabel
+
 var selected := 0
 
 func _ready():
 	update_menu()
+	update_hp()
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("move_down"):
@@ -41,3 +44,9 @@ func choose_option():
 			print("Item")
 		2:
 			print("Run")
+
+func update_hp():
+	hp_label.text = "HP: %d/%d" % [
+		PlayerStats.stats.hp,
+		PlayerStats.stats.max_hp
+	]

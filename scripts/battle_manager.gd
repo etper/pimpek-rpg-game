@@ -9,9 +9,18 @@ var in_battle := false
 
 const BATTLE_SCENE = preload("res://scenes/battle.tscn")
 
+var enemy_stats: CharacterStats
+
 func start_battle():
 	if in_battle:
 		return
+
+	enemy_stats = CharacterStats.new()
+	enemy_stats.max_hp = 15
+	enemy_stats.hp = 15
+	enemy_stats.attack = 4
+	enemy_stats.defense = 1
+	enemy_stats.speed = 3
 
 	in_battle = true
 
