@@ -82,7 +82,10 @@ func attack_enemy():
 
 	if enemy.hp <= 0:
 		print("Enemy defeated!")
-		BattleManager.end_battle()
+		print("Victory!")
+		# TODO: give rewards
+
+		BattleManager.end_battle(BattleManager.BattleResult.WIN)
 		return
 
 	await get_tree().create_timer(0.5).timeout
@@ -103,7 +106,9 @@ func enemy_attack():
 
 	if player.hp <= 0:
 		print("Player defeated!")
-		BattleManager.end_battle()
+		print("Game Over")
+
+		BattleManager.end_battle(BattleManager.BattleResult.LOSE)
 		
 	
 	if player.hp > 0:

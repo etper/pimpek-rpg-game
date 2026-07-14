@@ -9,6 +9,14 @@ var in_battle := false
 
 const BATTLE_SCENE = preload("res://scenes/battle.tscn")
 
+enum BattleResult {
+	WIN,
+	LOSE,
+	RUN
+}
+
+var last_result := BattleResult.WIN
+
 var enemy_stats: CharacterStats
 
 func start_battle():
@@ -32,9 +40,11 @@ func start_battle():
 
 	battle_started.emit()
 
-func end_battle():
+func end_battle(result := BattleResult.WIN):
 	if !in_battle:
 		return
+
+	last_result = result
 
 	battle_scene.queue_free()
 	battle_scene = null
