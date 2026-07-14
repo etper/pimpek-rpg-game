@@ -15,6 +15,8 @@ var choosing := false
 var selected := 0
 var choices := []
 
+@export var fast_text_multiplier := 4.0
+
 func show_dialogue(text: String):
 	box.show()
 	options_label.hide()
@@ -24,7 +26,12 @@ func show_dialogue(text: String):
 
 	for c in text:
 		label.text += c
-		await get_tree().create_timer(1.0 / letters_per_second).timeout
+
+		var speed = letters_per_second
+		if Input.is_action_pressed("sprint"): # LSHIFT
+			speed *= fast_text_multiplier
+
+		await get_tree().create_timer(1.0 / speed).timeout
 
 	finished = true
 

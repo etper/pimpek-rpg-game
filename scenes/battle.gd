@@ -52,14 +52,17 @@ func _unhandled_input(event):
 	match state:
 		BattleState.MENU:
 			if Input.is_action_just_pressed("move_down"):
+				SoundManager.play_scroll()
 				selected = (selected + 1) % menu_labels.size()
 				update_menu()
 
 			elif Input.is_action_just_pressed("move_up"):
+				SoundManager.play_scroll()
 				selected = (selected - 1 + menu_labels.size()) % menu_labels.size()
 				update_menu()
 
 			elif Input.is_action_just_pressed("interact"):
+				SoundManager.play_interact()
 				choose_option()
 
 		BattleState.ITEM_MENU:
