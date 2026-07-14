@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d3e4optw0tb3"]
 
 [ext_resource type="SpriteFrames" uid="uid://dpxvr6jaeing" path="res://pimpek_frames.tres" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://bi0bfwku20l57" path="res://sfx/footstep.wav" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://b4b40uecbr0aq" path="res://sfx/interact.wav" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
 size = Vector2(62, 42)
@@ -22,3 +24,10 @@ shape = SubResource("RectangleShape2D_vkqoe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=711881929]
 position = Vector2(1.5, 48.5)
 shape = SubResource("RectangleShape2D_co6qv")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1241323561]
+stream = ExtResource("2_g2els")
+volume_db = -20.0
+
+[node name="InteractPlayer" type="AudioStreamPlayer2D" parent="." unique_id=892962421]
+stream = ExtResource("3_qhqgy")

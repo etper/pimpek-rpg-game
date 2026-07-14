@@ -28,7 +28,6 @@ func show_dialogue(text: String):
 
 	finished = true
 
-
 func show_choice(question: String, new_choices: Array):
 	await show_dialogue(question)
 
@@ -42,14 +41,17 @@ func show_choice(question: String, new_choices: Array):
 		_update_options()
 
 		if Input.is_action_just_pressed("move_down"):
+			SoundManager.play_scroll()
 			selected = (selected + 1) % choices.size()
 
 		elif Input.is_action_just_pressed("move_up"):
+			SoundManager.play_scroll()
 			selected -= 1
 			if selected < 0:
 				selected = choices.size() - 1
 
 		elif Input.is_action_just_pressed("interact"):
+			SoundManager.play_interact()
 			choosing = false
 
 		await get_tree().process_frame
@@ -58,7 +60,6 @@ func show_choice(question: String, new_choices: Array):
 	hide_dialogue()
 
 	return selected
-
 
 func _update_options():
 	options_label.text = ""
@@ -73,7 +74,6 @@ func _update_options():
 
 		if i != choices.size() - 1:
 			options_label.text += "\n"
-
 
 func hide_dialogue():
 	box.hide()

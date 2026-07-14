@@ -11,6 +11,7 @@ func execute(context):
 
 	while ui.box.visible:
 		if ui.finished and Input.is_action_just_pressed("interact"):
+			SoundManager.play_interact()
 			ui.hide_dialogue()
 
 		await tree.process_frame

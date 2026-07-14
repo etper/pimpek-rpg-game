@@ -14,6 +14,12 @@ var highlighted: Area2D = null
 @export var left_offset := Vector2(-24, 0)
 @export var right_offset := Vector2(24, 0)
 
+@onready var footstep = $FootstepPlayer
+@onready var interact_sfx = $InteractPlayer
+
+func _ready():
+	anim.frame_changed.connect(_on_frame_changed)
+
 func _physics_process(_delta):
 	
 	if get_tree().paused:
@@ -112,6 +118,7 @@ func interact():
 
 	for area in interaction_shape.get_overlapping_areas():
 		if area.has_method("interact"):
+			interact_sfx.play()
 			await area.interact()
 			return
 
@@ -120,6 +127,7 @@ func interact():
 			continue
 
 		if area.has_method("interact"):
+			interact_sfx.play()
 			await area.interact()
 			return
 
@@ -128,6 +136,7 @@ func interact():
 			continue
 
 		if body.has_method("interact"):
+			interact_sfx.play()
 			await body.interact()
 			return
 
@@ -136,3 +145,14 @@ func update_interaction_position():
 		interaction_shape.position = right_offset if facing.x > 0 else left_offset
 	else:
 		interaction_shape.position = down_offset if facing.y > 0 else up_offset
+
+func _on_frame_changed():
+	if !anim.animation.begins_with("walk"):
+		return
+
+	if velocity.length() == 0:
+		return
+
+	if anim.frame == 1 or anim.frame == 3:
+		footstep.pitch_scale = randf_range(0.90, 1.10)
+		footstep.play()
