@@ -8,5 +8,8 @@ const ITEMS = {
 	"Stare Skarpetki": {
 		"name": "Stare Skarpetki",
 		"icon": "res://sprites/ants.png"
+	},
+	"Herbata": {
+		"name": "Herbata"
 	}
 }
