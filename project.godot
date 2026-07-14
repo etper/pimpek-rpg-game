@@ -21,6 +21,7 @@ EventRunner="*uid://hwcvsfkek6f4"
 Inventory="*uid://d3koguofjilg7"
 BattleManager="*uid://k6wjebqyec2m"
 PlayerStats="*uid://cmq8c3kd8lxob"
+ItemDatabase="*uid://b8dcga25echra"
 
 [display]
 
