@@ -57,8 +57,11 @@ layout_mode = 2
 text = "Run"
 
 [node name="ItemMenu" type="VBoxContainer" parent="." unique_id=264859710]
-offset_right = 40.0
-offset_bottom = 40.0
+visible = false
+offset_left = 722.0
+offset_top = 695.0
+offset_right = 1027.0
+offset_bottom = 887.0
 
 [node name="Item0" type="Label" parent="ItemMenu" unique_id=1815740660]
 layout_mode = 2

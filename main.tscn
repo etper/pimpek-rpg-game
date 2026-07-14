@@ -211,7 +211,7 @@ tile_set = SubResource("TileSet_vkqoe")
 
 [node name="Player" parent="." unique_id=679463758 instance=ExtResource("1_ig7tw")]
 z_index = 1
-position = Vector2(733, 488)
+position = Vector2(1373, 629)
 script = ExtResource("2_0xm2m")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=641810485]

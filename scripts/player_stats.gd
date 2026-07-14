@@ -8,3 +8,5 @@ func _ready():
 	stats.attack = 8
 	stats.defense = 4
 	stats.speed = 6
+	
+	Inventory.add_item("potion", 3)
