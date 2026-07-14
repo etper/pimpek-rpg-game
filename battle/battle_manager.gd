@@ -1,6 +1,6 @@
 extends Node
 
-@export var player_data: PlayerData
+var player_data: PlayerData = preload("res://battle/resources/player.tres")
 
 var previous_scene_path := ""
 var current_enemy: EnemyData

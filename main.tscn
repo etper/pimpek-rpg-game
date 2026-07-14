@@ -194,6 +194,46 @@ metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 script = ExtResource("19_82xsv")
 metadata/_custom_type_script = "uid://e48rq7o4roy3"
 
+[sub_resource type="Resource" id="Resource_a6jrf"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_xuqvo"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_qsp4k"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_kq58d"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_seu75"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_htxhm"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_jq2sk"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_4k2k6"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_0rl1p"]
+script = ExtResource("8_kek77")
+text = "New dialogue"
+
+[sub_resource type="Resource" id="Resource_ok6jj"]
+script = ExtResource("8_kek77")
+text = "New Dialogue"
+
 [node name="Main" type="Node2D" unique_id=1148531345]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=688064548]
@@ -309,6 +349,7 @@ scale = Vector2(0.7243127, 0.46538842)
 [node name="Ants" parent="." unique_id=531114189 instance=ExtResource("3_h2yge")]
 position = Vector2(1489, 651)
 sprite = ExtResource("21_getpj")
+events = Array[ExtResource("7_5vw27")]([])
 
 [node name="Sprite2D" parent="Ants" index="0" unique_id=122994009]
 texture = ExtResource("21_getpj")
@@ -318,6 +359,10 @@ scale = Vector2(0.43999022, 0.44)
 
 [node name="InteractShape" parent="Ants" index="2" unique_id=931893703]
 scale = Vector2(0.4748381, 0.45600843)
+
+[node name="Interactable" parent="." unique_id=1093778559 instance=ExtResource("3_h2yge")]
+position = Vector2(884, 1175)
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_a6jrf"), SubResource("Resource_xuqvo"), SubResource("Resource_qsp4k"), SubResource("Resource_kq58d"), SubResource("Resource_seu75"), SubResource("Resource_htxhm"), SubResource("Resource_jq2sk"), SubResource("Resource_4k2k6"), SubResource("Resource_0rl1p"), SubResource("Resource_ok6jj")])
 
 [editable path="Bed"]
 [editable path="Teapot"]
