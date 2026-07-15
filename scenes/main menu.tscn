@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://bxvy70ppxjceh" path="res://scripts/random_sprite.gd" id="2_oy07q"]
 [ext_resource type="Texture2D" uid="uid://cqd7druhsiglj" path="res://sprites/bg.png" id="2_vsw8r"]
 [ext_resource type="Texture2D" uid="uid://cyr8t1eyviv4u" path="res://sprites/pimpekDefault.png" id="3_5a6dn"]
-[ext_resource type="AudioStream" uid="uid://dt2yus484qmwr" path="res://music/Main Menu.mp3" id="3_12vek"]
 [ext_resource type="Texture2D" uid="uid://bdl6ghgmqgp32" path="res://sprites/pimpekSing.png" id="3_c1qw6"]
 [ext_resource type="Script" uid="uid://bc4fpidxk3xin" path="res://scenes/pimpek_face_default.gd" id="4_ljdde"]
 [ext_resource type="Texture2D" uid="uid://cn5pmce3bsivo" path="res://sprites/pimpekXD.png" id="5_15o7b"]
@@ -161,9 +160,3 @@ offset_right = 1978.0
 offset_bottom = 1101.0
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
-
-[node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=801147789]
-stream = ExtResource("3_12vek")
-autoplay = true
-bus = &"Music"
-parameters/looping = true

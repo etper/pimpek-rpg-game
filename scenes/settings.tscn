@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cqd7druhsiglj" path="res://sprites/bg.png" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://dc4bfyjs41km1" path="res://scenes/settings.gd" id="1_r6d6q"]
-[ext_resource type="AudioStream" uid="uid://dt2yus484qmwr" path="res://music/Main Menu.mp3" id="3_6wm04"]
 [ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="4_f4mfi"]
 
 [node name="Settings" type="Control" unique_id=266463304]
@@ -15,12 +14,6 @@ position = Vector2(953, 536)
 scale = Vector2(1.075926, 1.075926)
 texture = ExtResource("1_5p8wc")
 metadata/_edit_lock_ = true
-
-[node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=1074422227]
-stream = ExtResource("3_6wm04")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1400358921]
 layout_mode = 0

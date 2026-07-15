@@ -23,6 +23,7 @@ BattleManager="*uid://k6wjebqyec2m"
 PlayerStats="*uid://cmq8c3kd8lxob"
 ItemDatabase="*uid://b8dcga25echra"
 SoundManager="*uid://sgldqbqr5gq"
+MusicManager="*uid://d4c5pm7noujto"
 
 [display]
 

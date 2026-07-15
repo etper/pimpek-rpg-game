@@ -7,14 +7,14 @@ extends Control
 	$"VBoxContainer/Quit",
 ]
 
+const MAIN_MENU_MUSIC = preload("res://music/Main Menu.mp3")
+
 @export var target_sprite: Sprite2D
 @export var random_sprites: Array[RandomSprite]
 
 var selected := 0
 
 @onready var fade = $Fade
-
-@onready var bg_music = $"BG Music"
 
 const SAVE_PATH = "user://save.dat"
 
@@ -29,6 +29,7 @@ func _ready():
 	randomize()
 	update_menu()
 	choose_random_sprite()
+	MusicManager.play(MAIN_MENU_MUSIC)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("move_down"):
@@ -93,10 +94,9 @@ func fade_to_black():
 	fade.color.a = 0.0
 
 	var tween = create_tween()
-	tween.set_parallel(true)
-
 	tween.tween_property(fade, "color:a", 1.0, 3.5)
-	tween.tween_property(bg_music, "volume_db", -80.0, 3.5)
+
+	MusicManager.fade_out(3.5)
 
 	await tween.finished
 

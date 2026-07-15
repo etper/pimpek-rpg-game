@@ -13,8 +13,11 @@ var master := 100
 var music := 100
 var sfx := 100
 
+const MAIN_MENU_MUSIC = preload("res://music/Main Menu.mp3")
+
 func _ready():
 	update_menu()
+	MusicManager.play(MAIN_MENU_MUSIC)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("move_down"):
