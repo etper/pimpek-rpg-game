@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpl3rdfirur6m" path="res://sprites/bed.png" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://dh1xriwaali2b" path="res://sprites/portraits/pimpekIdle.png" id="9_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://b3rq65ifbyo20" path="res://sprites/window.png" id="9_kek77"]
 [ext_resource type="Texture2D" uid="uid://43jgenmr14kj" path="res://sprites/kitchen countertop.png" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://dgc05q2fx6ilg" path="res://sprites/teapot.png" id="12_dg77c"]
@@ -22,10 +23,9 @@
 [ext_resource type="Script" uid="uid://e48rq7o4roy3" path="res://scripts/events/disable_interactable.gd" id="19_82xsv"]
 [ext_resource type="Texture2D" uid="uid://icrheki1yq2y" path="res://sprites/ants.png" id="21_getpj"]
 [ext_resource type="Resource" uid="uid://c6u5ajvayp0x6" path="res://enemies/ant.tres" id="22_d13ii"]
+[ext_resource type="Texture2D" uid="uid://ex67q137t3d5" path="res://sprites/portraits/pimpekHuh.png" id="22_lswn8"]
 [ext_resource type="Script" uid="uid://bkgurhpwesdqe" path="res://scripts/events/start_battle.gd" id="22_ryguw"]
 [ext_resource type="PackedScene" uid="uid://bmceh7bop7par" path="res://scenes/item_notifications.tscn" id="24_1u8w0"]
-[ext_resource type="Texture2D" uid="uid://c6lra44g0pvrh" path="res://sprites/icon.svg" id="25_lswn8"]
-[ext_resource type="Script" uid="uid://bukwlb3ropmuc" path="res://scripts/events/remove_item.gd" id="26_a6jrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -125,11 +125,13 @@ sources/2 = SubResource("TileSetAtlasSource_5vw27")
 [sub_resource type="Resource" id="Resource_7mycd"]
 script = ExtResource("8_kek77")
 text = "Niewiarygodne jest to, jak wygodne jest to lozko"
+expression = ExtResource("9_a6jrf")
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [sub_resource type="Resource" id="Resource_kek77"]
 script = ExtResource("8_kek77")
 text = "Jak przyjemnie sie patrzy na to, co razem zbudowalismy"
+expression = ExtResource("9_a6jrf")
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [sub_resource type="Resource" id="Resource_vivmo"]
@@ -177,6 +179,7 @@ metadata/_custom_type_script = "uid://dat21hmcobdej"
 [sub_resource type="Resource" id="Resource_ryguw"]
 script = ExtResource("8_kek77")
 text = "Zastanawialem sie, gdzie to zostawilem!"
+expression = ExtResource("22_lswn8")
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
 [sub_resource type="Resource" id="Resource_0odxb"]
@@ -197,11 +200,6 @@ metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 script = ExtResource("22_ryguw")
 enemy = ExtResource("22_d13ii")
 metadata/_custom_type_script = "uid://bkgurhpwesdqe"
-
-[sub_resource type="Resource" id="Resource_15o7b"]
-script = ExtResource("26_a6jrf")
-item_id = "Stare Skarpetki"
-metadata/_custom_type_script = "uid://bukwlb3ropmuc"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
 
@@ -227,6 +225,45 @@ offset_left = 27.0
 offset_top = 781.0
 offset_right = 1889.0
 offset_bottom = 1047.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/DialogueBox" unique_id=25249431]
+layout_mode = 0
+offset_right = 1862.0
+offset_bottom = 266.0
+color = Color(0.84705883, 0.62352943, 0.39607844, 1)
+
+[node name="Portrait" type="TextureRect" parent="UI/DialogueBox" unique_id=211297603]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 270.0
+offset_bottom = 259.0
+
+[node name="ColorRect2" type="ColorRect" parent="UI/DialogueBox" unique_id=1055331714]
+layout_mode = 0
+offset_top = 259.0
+offset_right = 1861.0
+offset_bottom = 266.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="UI/DialogueBox" unique_id=1572380928]
+layout_mode = 0
+offset_right = 1862.0
+offset_bottom = 7.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="UI/DialogueBox" unique_id=1241831911]
+layout_mode = 0
+offset_right = 6.0
+offset_bottom = 261.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="UI/DialogueBox" unique_id=1152632969]
+layout_mode = 0
+offset_left = 1856.0
+offset_right = 1862.0
+offset_bottom = 266.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox" unique_id=604527061]
 layout_mode = 0
@@ -333,11 +370,6 @@ scale = Vector2(0.43999022, 0.44)
 scale = Vector2(0.4748381, 0.45600843)
 
 [node name="ItemNotifications" parent="." unique_id=296417052 instance=ExtResource("24_1u8w0")]
-
-[node name="Interactable" parent="." unique_id=1064737833 instance=ExtResource("3_h2yge")]
-position = Vector2(698, 606)
-sprite = ExtResource("25_lswn8")
-events = Array[ExtResource("7_5vw27")]([SubResource("Resource_15o7b")])
 
 [editable path="Bed"]
 [editable path="Teapot"]

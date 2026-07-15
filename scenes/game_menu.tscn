@@ -1,30 +1,69 @@
 [gd_scene format=3 uid="uid://cp4unsyp7l3t0"]
 
 [ext_resource type="Script" uid="uid://dfbpke6qkc8b3" path="res://scenes/game_menu.gd" id="1_qdaa4"]
+[ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="2_vrsc2"]
 
 [node name="GameMenu" type="CanvasLayer" unique_id=1573289332]
 script = ExtResource("1_qdaa4")
 
 [node name="Panel" type="Panel" parent="." unique_id=1477923939]
-offset_right = 1917.0
+offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=565813725]
+layout_mode = 0
+offset_right = 1919.0
+offset_bottom = 1077.0
+color = Color(0.84705883, 0.62352943, 0.39607844, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Panel" unique_id=150184807]
+layout_mode = 0
+offset_top = 1073.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Panel" unique_id=1966348404]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 7.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Panel" unique_id=943879248]
+layout_mode = 0
+offset_right = 6.0
+offset_bottom = 1074.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Panel" unique_id=106906019]
+layout_mode = 0
+offset_left = 1914.0
+offset_right = 1920.0
+offset_bottom = 1074.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1692875265]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 319.0
+offset_bottom = 140.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1546400210]
 layout_mode = 2
 
 [node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1876141184]
 layout_mode = 2
-theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_vrsc2")
+theme_override_font_sizes/font_size = 50
 text = "GAME MENU"
 
 [node name="Inventory" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1004645893]
 layout_mode = 2
-theme_override_font_sizes/font_size = 44
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_vrsc2")
+theme_override_font_sizes/font_size = 50
 text = "INVENTORY"
 
 [node name="InventoryPanel" type="Panel" parent="Panel" unique_id=1361526563]

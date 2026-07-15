@@ -17,9 +17,23 @@ var choices := []
 
 @export var fast_text_multiplier := 4.0
 
-func show_dialogue(text: String):
+@onready var portrait = $DialogueBox/Portrait
+@onready var margin = $DialogueBox/MarginContainer
+
+const NO_PORTRAIT_MARGIN = 0
+const PORTRAIT_MARGIN = 264
+
+func show_dialogue(text: String, expression: Texture2D = null):
 	box.show()
 	options_label.hide()
+
+	if expression:
+		portrait.texture = expression
+		portrait.show()
+		margin.add_theme_constant_override("margin_left", PORTRAIT_MARGIN)
+	else:
+		portrait.hide()
+		margin.add_theme_constant_override("margin_left", NO_PORTRAIT_MARGIN)
 
 	label.text = ""
 	finished = false

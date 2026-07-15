@@ -53,8 +53,6 @@ layout_mode = 2
 [node name="Text" type="Label" parent="Hbox" unique_id=1572428402]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.92176855, 0.74146974, 0.5654144, 1)
-theme_override_colors/font_outline_color = Color(0.47843137, 0.3254902, 0.16078432, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_tp5bc")
 theme_override_font_sizes/font_size = 30

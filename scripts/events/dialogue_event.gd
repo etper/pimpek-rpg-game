@@ -2,12 +2,13 @@ extends EventCommand
 class_name DialogueEvent
 
 @export_multiline var text := ""
+@export var expression: Texture2D
 
 func execute(context):
 	var tree = context.get_tree()
 	var ui = tree.current_scene.get_node("UI")
 
-	ui.show_dialogue(text)
+	ui.show_dialogue(text, expression)
 
 	while ui.box.visible:
 		if ui.finished and Input.is_action_just_pressed("interact"):
