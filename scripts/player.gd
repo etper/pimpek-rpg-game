@@ -85,7 +85,7 @@ func _physics_process(_delta):
 
 	update_highlight()
 
-	if Input.is_action_just_pressed("interact"):
+	if !interaction_locked and Input.is_action_just_pressed("interact"):
 		interact()
 
 func update_highlight():
@@ -126,7 +126,9 @@ func interact():
 			await area.interact()
 			break
 
-	await get_tree().process_frame
+	while Input.is_action_pressed("interact"):
+		await get_tree().process_frame
+
 	interaction_locked = false
 
 func update_interaction_position():
