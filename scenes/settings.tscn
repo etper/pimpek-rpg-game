@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b5awweluegvlo"]
+
+[ext_resource type="Texture2D" uid="uid://cqd7druhsiglj" path="res://sprites/bg.png" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://dc4bfyjs41km1" path="res://scenes/settings.gd" id="1_r6d6q"]
+[ext_resource type="AudioStream" uid="uid://dt2yus484qmwr" path="res://music/Main Menu.mp3" id="3_6wm04"]
+
+[node name="Settings" type="Control" unique_id=266463304]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_r6d6q")
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1920741580]
+position = Vector2(953, 536)
+scale = Vector2(1.075926, 1.075926)
+texture = ExtResource("1_5p8wc")
+metadata/_edit_lock_ = true
+
+[node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=1074422227]
+stream = ExtResource("3_6wm04")
+autoplay = true
+parameters/looping = true

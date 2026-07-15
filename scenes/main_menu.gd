@@ -84,7 +84,7 @@ func activate():
 				return
 
 		2:
-			print("Settings")
+			get_tree().change_scene_to_file("res://scenes/settings.tscn")
 
 		3:
 			get_tree().quit()
