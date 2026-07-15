@@ -1,10 +1,43 @@
 [gd_scene format=3 uid="uid://bkm41w156u5nx"]
 
 [ext_resource type="Script" uid="uid://bvjw8bcl6re2y" path="res://scenes/item_notification.gd" id="1_2t1bs"]
+[ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="2_tp5bc"]
 
 [node name="ItemNotification" type="Panel" unique_id=1153881276]
-custom_minimum_size = Vector2(300, 48)
+custom_minimum_size = Vector2(600, 96)
 script = ExtResource("1_2t1bs")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1965035641]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 96.0
+color = Color(0.84705883, 0.62352943, 0.39607844, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1660424154]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 600.0
+offset_bottom = 96.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1384405126]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 7.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=65497803]
+layout_mode = 0
+offset_right = 6.0
+offset_bottom = 96.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=1125004391]
+layout_mode = 0
+offset_left = 594.0
+offset_right = 600.0
+offset_bottom = 96.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
 
 [node name="Hbox" type="HBoxContainer" parent="." unique_id=675628545]
 layout_mode = 1
@@ -19,4 +52,12 @@ layout_mode = 2
 
 [node name="Text" type="Label" parent="Hbox" unique_id=1572428402]
 layout_mode = 2
-text = "Got Potion x3"
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.92176855, 0.74146974, 0.5654144, 1)
+theme_override_colors/font_outline_color = Color(0.47843137, 0.3254902, 0.16078432, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_tp5bc")
+theme_override_font_sizes/font_size = 30
+text = "Otrzymujesz: Stare Skarpetki"
+horizontal_alignment = 1
+vertical_alignment = 1

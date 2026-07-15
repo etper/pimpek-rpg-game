@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pgj1p5kbkoj4"
+path="res://.godot/imported/remove item.wav-f604bb2a5076cca9247a8edada7b1c96.sample"
+
+[deps]
+
+source_file="res://sfx/remove item.wav"
+dest_files=["res://.godot/imported/remove item.wav-f604bb2a5076cca9247a8edada7b1c96.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -3,6 +3,8 @@ extends Node
 const INTERACT = preload("res://sfx/interact.wav")
 const SCROLL = preload("res://sfx/scroll.wav")
 const TEXT = preload("res://sfx/dialogue scroll.wav")
+const DING = preload("res://sfx/ding.wav")
+const REMOVEITEM = preload("res://sfx/remove item.wav")
 
 func play_text():
 	var player := AudioStreamPlayer.new()
@@ -23,6 +25,22 @@ func play_interact():
 func play_scroll():
 	var player := AudioStreamPlayer.new()
 	player.stream = SCROLL
+	player.volume_db = -10
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
+func play_ding():
+	var player := AudioStreamPlayer.new()
+	player.stream = DING
+	player.volume_db = -10
+	add_child(player)
+	player.play()
+	player.finished.connect(player.queue_free)
+
+func play_remove():
+	var player := AudioStreamPlayer.new()
+	player.stream = REMOVEITEM
 	player.volume_db = -10
 	add_child(player)
 	player.play()

@@ -24,6 +24,8 @@
 [ext_resource type="Resource" uid="uid://c6u5ajvayp0x6" path="res://enemies/ant.tres" id="22_d13ii"]
 [ext_resource type="Script" uid="uid://bkgurhpwesdqe" path="res://scripts/events/start_battle.gd" id="22_ryguw"]
 [ext_resource type="PackedScene" uid="uid://bmceh7bop7par" path="res://scenes/item_notifications.tscn" id="24_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://c6lra44g0pvrh" path="res://sprites/icon.svg" id="25_lswn8"]
+[ext_resource type="Script" uid="uid://bukwlb3ropmuc" path="res://scripts/events/remove_item.gd" id="26_a6jrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
 texture = ExtResource("1_5vw27")
@@ -196,6 +198,11 @@ script = ExtResource("22_ryguw")
 enemy = ExtResource("22_d13ii")
 metadata/_custom_type_script = "uid://bkgurhpwesdqe"
 
+[sub_resource type="Resource" id="Resource_15o7b"]
+script = ExtResource("26_a6jrf")
+item_id = "Stare Skarpetki"
+metadata/_custom_type_script = "uid://bukwlb3ropmuc"
+
 [node name="Main" type="Node2D" unique_id=1148531345]
 
 [node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=701678097]
@@ -326,6 +333,11 @@ scale = Vector2(0.43999022, 0.44)
 scale = Vector2(0.4748381, 0.45600843)
 
 [node name="ItemNotifications" parent="." unique_id=296417052 instance=ExtResource("24_1u8w0")]
+
+[node name="Interactable" parent="." unique_id=1064737833 instance=ExtResource("3_h2yge")]
+position = Vector2(698, 606)
+sprite = ExtResource("25_lswn8")
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_15o7b")])
 
 [editable path="Bed"]
 [editable path="Teapot"]
