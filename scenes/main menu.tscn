@@ -2,49 +2,157 @@
 
 [ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="1_5hgee"]
 [ext_resource type="Script" uid="uid://pmu1j1g4qikb" path="res://scenes/main_menu.gd" id="1_xsilq"]
+[ext_resource type="Script" uid="uid://bxvy70ppxjceh" path="res://scripts/random_sprite.gd" id="2_oy07q"]
+[ext_resource type="Texture2D" uid="uid://cqd7druhsiglj" path="res://sprites/bg.png" id="2_vsw8r"]
+[ext_resource type="Texture2D" uid="uid://cyr8t1eyviv4u" path="res://sprites/pimpekDefault.png" id="3_5a6dn"]
 [ext_resource type="AudioStream" uid="uid://dt2yus484qmwr" path="res://music/Main Menu.mp3" id="3_12vek"]
+[ext_resource type="Texture2D" uid="uid://bdl6ghgmqgp32" path="res://sprites/pimpekSing.png" id="3_c1qw6"]
+[ext_resource type="Script" uid="uid://bc4fpidxk3xin" path="res://scenes/pimpek_face_default.gd" id="4_ljdde"]
+[ext_resource type="Texture2D" uid="uid://cn5pmce3bsivo" path="res://sprites/pimpekXD.png" id="5_15o7b"]
+[ext_resource type="Texture2D" uid="uid://bycret5m2h5p1" path="res://sprites/pimpekHuh.png" id="6_o7mt6"]
+[ext_resource type="Texture2D" uid="uid://dq8h45mbekbjc" path="res://sprites/pimpekLay.png" id="7_xccyo"]
+[ext_resource type="Texture2D" uid="uid://cpd1tt5d5rvmu" path="res://sprites/pimpekPhone.png" id="8_uhvra"]
+[ext_resource type="Texture2D" uid="uid://v8jbb58bkbv" path="res://sprites/pimpekTemples.png" id="9_jxsxo"]
+[ext_resource type="Texture2D" uid="uid://dkxuxqf8b663l" path="res://sprites/pimpekBentOverBack.png" id="10_yl5mm"]
+[ext_resource type="Texture2D" uid="uid://dkohxnpn34qx2" path="res://sprites/pimpekHoldingLaugh.png" id="11_0inpw"]
+[ext_resource type="Texture2D" uid="uid://dng8eg27nenck" path="res://sprites/pimpekThinkingHard.png" id="12_tvyjs"]
 
-[node name="MainMenu" type="Control" unique_id=1875050602]
+[sub_resource type="Resource" id="Resource_5a6dn"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("3_c1qw6")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_fak3k"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("3_5a6dn")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_4w47j"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("5_15o7b")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_gb4fi"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("6_o7mt6")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_ioeen"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("7_xccyo")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_tjatm"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("8_uhvra")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_yimjx"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("9_jxsxo")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_15o7b"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("10_yl5mm")
+chance = 90.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_o7mt6"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("11_0inpw")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[sub_resource type="Resource" id="Resource_xccyo"]
+script = ExtResource("2_oy07q")
+texture = ExtResource("12_tvyjs")
+chance = 50.0
+metadata/_custom_type_script = "uid://bxvy70ppxjceh"
+
+[node name="MainMenu" type="Control" unique_id=1875050602 node_paths=PackedStringArray("target_sprite")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xsilq")
+target_sprite = NodePath("PimpekFaceDefault")
+random_sprites = Array[ExtResource("2_oy07q")]([SubResource("Resource_5a6dn"), SubResource("Resource_fak3k"), SubResource("Resource_4w47j"), SubResource("Resource_gb4fi"), SubResource("Resource_ioeen"), SubResource("Resource_tjatm"), SubResource("Resource_yimjx"), SubResource("Resource_15o7b"), SubResource("Resource_o7mt6"), SubResource("Resource_xccyo")])
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=230655873]
+position = Vector2(953, 536)
+scale = Vector2(1.075926, 1.075926)
+texture = ExtResource("2_vsw8r")
+metadata/_edit_lock_ = true
+
+[node name="PimpekFaceDefault" type="Sprite2D" parent="." unique_id=1886424736]
+position = Vector2(462, 874)
+texture = ExtResource("3_5a6dn")
+flip_h = true
+script = ExtResource("4_ljdde")
+
+[node name="Title" type="Label" parent="." unique_id=851305394]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 16.0
+offset_right = 1874.0
+offset_bottom = 388.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_fonts/font = ExtResource("1_5hgee")
+theme_override_font_sizes/font_size = 171
+text = "PRZYGODY PIMPKA"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=803905966]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 733.0
-offset_top = 443.0
-offset_right = 1180.0
-offset_bottom = 787.0
+offset_left = 1386.0
+offset_top = 686.0
+offset_right = 1870.0
+offset_bottom = 1062.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="New Game" type="Label" parent="VBoxContainer" unique_id=394213953]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 90
 text = "NEW GAME"
 
 [node name="Continue" type="Label" parent="VBoxContainer" unique_id=668096091]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 90
 text = "CONTINUE"
 
 [node name="Settings" type="Label" parent="VBoxContainer" unique_id=910880387]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 90
 text = "SETTINGS"
 
 [node name="Quit" type="Label" parent="VBoxContainer" unique_id=1454997552]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
-theme_override_font_sizes/font_size = 54
+theme_override_font_sizes/font_size = 90
 text = "QUIT"
 
 [node name="Fade" type="ColorRect" parent="." unique_id=117452435]
@@ -52,6 +160,7 @@ layout_mode = 0
 offset_right = 1978.0
 offset_bottom = 1101.0
 color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=801147789]
 stream = ExtResource("3_12vek")

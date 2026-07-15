@@ -5,7 +5,7 @@ extends Panel
 
 func setup(item_name: String, item_icon: Texture2D, amount: int, added: bool):
 	text_label.text = "%s %s x%d" % [
-		"Got" if added else "Lost",
+		"Otrzymujesz:" if added else "Tracisz:",
 		item_name,
 		amount
 	]
