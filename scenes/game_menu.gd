@@ -18,10 +18,10 @@ const APP_NAMES := [
 ]
 
 const APP_ICONS := [
-	preload("res://sprites/ui/mapAppIcon.png"),
+	preload("res://sprites/ui/inventoryAppIcon.png"),
 	preload("res://sprites/ui/questAppIcon.png"),
-	preload("res://sprites/ui/settingsAppIcon.png"),
-	preload("res://sprites/ui/inventoryAppIcon.png")
+	preload("res://sprites/ui/mapAppIcon.png"),
+	preload("res://sprites/ui/settingsAppIcon.png")
 ]
 
 @onready var phone = $Panel/Phone
@@ -55,6 +55,10 @@ func _ready():
 		button.text = ""
 		button.icon = APP_ICONS[i]
 		button.expand_icon = true
+		button.custom_minimum_size = Vector2(128, 128)
+
+		print("ICON ", i, ": ", APP_ICONS[i])
+		print("SIZE: ", APP_ICONS[i].get_size())
 
 
 func _unhandled_input(event):
