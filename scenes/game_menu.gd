@@ -8,6 +8,22 @@ enum MenuState {
 	SETTINGS
 }
 
+@onready var title: Label = $Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Title
+
+const APP_NAMES := [
+	"INVENTORY",
+	"QUESTS",
+	"MAP",
+	"SETTINGS"
+]
+
+const APP_ICONS := [
+	preload("res://sprites/ui/mapAppIcon.png"),
+	preload("res://sprites/ui/questAppIcon.png"),
+	preload("res://sprites/ui/settingsAppIcon.png"),
+	preload("res://sprites/ui/inventoryAppIcon.png")
+]
+
 @onready var phone = $Panel/Phone
 @onready var home_screen = $Panel/Phone/HomeScreen
 @onready var inventory_screen = $Panel/Phone/InventoryScreen
@@ -32,8 +48,13 @@ func _ready():
 
 	Inventory.inventory_changed.connect(update_inventory)
 
-	for button in apps:
+	for i in apps.size():
+		var button := apps[i]
+
 		button.focus_mode = Control.FOCUS_NONE
+		button.text = ""
+		button.icon = APP_ICONS[i]
+		button.expand_icon = true
 
 
 func _unhandled_input(event):
@@ -98,6 +119,8 @@ func handle_phone_input():
 
 
 func update_selection():
+	title.text = APP_NAMES[selected]
+
 	for i in apps.size():
 		var button := apps[i]
 
@@ -106,7 +129,7 @@ func update_selection():
 			button.modulate = Color.WHITE
 		else:
 			button.scale = Vector2.ONE
-			button.modulate = Color(0.8, 0.8, 0.8)
+			button.modulate = Color(0.65, 0.65, 0.65)
 
 
 func activate():

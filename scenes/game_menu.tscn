@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dfbpke6qkc8b3" path="res://scenes/game_menu.gd" id="1_qdaa4"]
 [ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="2_vrsc2"]
+[ext_resource type="Texture2D" uid="uid://brhv8bqgkanpc" path="res://sprites/ui/inventoryAppIcon.png" id="3_ysvk1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lswn8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdaa4"]
+bg_color = Color(0.84705883, 0.62352943, 0.39607844, 1)
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6jrf"]
 
@@ -52,6 +58,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer" unique_id=1546230059]
 layout_mode = 2
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_vrsc2")
 theme_override_font_sizes/font_size = 50
 text = "PIMPHONE"
@@ -63,6 +70,7 @@ columns = 2
 [node name="Inventory" type="Button" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps" unique_id=90875113]
 layout_mode = 2
 text = "INVENTORY"
+icon = ExtResource("3_ysvk1")
 
 [node name="Quests" type="Button" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps" unique_id=2053718925]
 layout_mode = 2
