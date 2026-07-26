@@ -17,18 +17,6 @@ offset_right = 1918.0
 offset_bottom = 1078.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_lswn8")
 
-[node name="InventoryPanel" type="Panel" parent="Panel" unique_id=1361526563]
-visible = false
-layout_mode = 0
-offset_left = 312.0
-offset_right = 1917.0
-offset_bottom = 1080.0
-
-[node name="ItemList" type="RichTextLabel" parent="Panel/InventoryPanel" unique_id=953966143]
-layout_mode = 0
-offset_right = 1608.0
-offset_bottom = 1075.0
-
 [node name="Phone" type="Panel" parent="Panel" unique_id=823188467]
 custom_minimum_size = Vector2(720, 850)
 layout_mode = 0
@@ -38,42 +26,64 @@ offset_right = 1680.0
 offset_bottom = 938.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qdaa4")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/Phone" unique_id=1423782642]
+[node name="HomeScreen" type="Control" parent="Panel/Phone" unique_id=1948766921]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -133.0
-offset_right = 133.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Phone/MarginContainer" unique_id=158940367]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Phone/HomeScreen" unique_id=1423782642]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -133.0
+offset_top = 16.0
+offset_right = 133.0
+offset_bottom = 137.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Phone/HomeScreen/MarginContainer" unique_id=158940367]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Panel/Phone/MarginContainer/VBoxContainer" unique_id=1546230059]
+[node name="Title" type="Label" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer" unique_id=1546230059]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_vrsc2")
 theme_override_font_sizes/font_size = 50
 text = "PIMPHONE"
 
-[node name="Apps" type="GridContainer" parent="Panel/Phone/MarginContainer/VBoxContainer" unique_id=1195477763]
+[node name="Apps" type="GridContainer" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer" unique_id=1195477763]
 layout_mode = 2
 columns = 2
 
-[node name="Inventory" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=90875113]
+[node name="Inventory" type="Button" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps" unique_id=90875113]
 layout_mode = 2
 text = "INVENTORY"
 
-[node name="Quests" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=2053718925]
+[node name="Quests" type="Button" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps" unique_id=2053718925]
 layout_mode = 2
 text = "QUESTS"
 
-[node name="Map" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=1479561840]
+[node name="Map" type="Button" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps" unique_id=1479561840]
 layout_mode = 2
 text = "MAP"
 
-[node name="Settings" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=56137998]
+[node name="Settings" type="Button" parent="Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps" unique_id=56137998]
 layout_mode = 2
 text = "SETTINGS"
+
+[node name="InventoryScreen" type="Panel" parent="Panel/Phone" unique_id=1361526563]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="RichTextLabel" parent="Panel/Phone/InventoryScreen" unique_id=953966143]
+layout_mode = 0
+offset_right = 1608.0
+offset_bottom = 1075.0

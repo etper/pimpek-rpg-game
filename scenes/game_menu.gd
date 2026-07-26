@@ -8,15 +8,17 @@ enum MenuState {
 	SETTINGS
 }
 
-@onready var apps: Array[Button] = [
-	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Inventory,
-	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Quests,
-	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Map,
-	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Settings
-]
-
 @onready var phone = $Panel/Phone
-@onready var item_list = $Panel/InventoryPanel/ItemList
+@onready var home_screen = $Panel/Phone/HomeScreen
+@onready var inventory_screen = $Panel/Phone/InventoryScreen
+@onready var item_list = $Panel/Phone/InventoryScreen/ItemList
+
+@onready var apps: Array[Button] = [
+	$Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps/Inventory,
+	$Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps/Quests,
+	$Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps/Map,
+	$Panel/Phone/HomeScreen/MarginContainer/VBoxContainer/Apps/Settings
+]
 
 var state := MenuState.ROOT
 var selected := 0
@@ -48,7 +50,8 @@ func toggle():
 		state = MenuState.ROOT
 		selected = 0
 
-		$Panel/InventoryPanel.hide()
+		inventory_screen.hide()
+		home_screen.show()
 		phone.show()
 
 		update_selection()
@@ -128,8 +131,8 @@ func open_inventory():
 
 	update_inventory()
 
-	phone.hide()
-	$Panel/InventoryPanel.show()
+	home_screen.hide()
+	inventory_screen.show()
 
 
 func update_inventory():
@@ -153,7 +156,8 @@ func go_back():
 			toggle()
 
 		MenuState.INVENTORY:
-			$Panel/InventoryPanel.hide()
+			inventory_screen.hide()
+			home_screen.show()
 			phone.show()
 
 			state = MenuState.ROOT
