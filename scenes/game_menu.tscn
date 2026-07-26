@@ -7,6 +7,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdaa4"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6jrf"]
+
 [node name="GameMenu" type="CanvasLayer" unique_id=1573289332]
 script = ExtResource("1_qdaa4")
 
@@ -82,8 +84,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_a6jrf")
+
+[node name="Title" type="Label" parent="Panel/Phone/InventoryScreen" unique_id=222767734]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 19.0
+offset_right = 533.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_vrsc2")
+theme_override_font_sizes/font_size = 50
+text = "INVENTORY"
 
 [node name="ItemList" type="RichTextLabel" parent="Panel/Phone/InventoryScreen" unique_id=953966143]
-layout_mode = 0
-offset_right = 1608.0
-offset_bottom = 1075.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 70.0
+grow_horizontal = 2
+grow_vertical = 2
