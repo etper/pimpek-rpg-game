@@ -219,6 +219,11 @@ position = Vector2(551, 398)
 
 [node name="UI" parent="." unique_id=390068744 instance=ExtResource("4_0odxb")]
 
+[node name="Fade" type="ColorRect" parent="UI" unique_id=1487702819]
+offset_right = 1949.0
+offset_bottom = 1098.0
+color = Color(0, 0, 0, 1)
+
 [node name="Bed" parent="." unique_id=73629740 instance=ExtResource("3_h2yge")]
 position = Vector2(416, 456)
 sprite = ExtResource("6_5vw27")
@@ -291,10 +296,6 @@ scale = Vector2(0.43999022, 0.44)
 scale = Vector2(0.4748381, 0.45600843)
 
 [node name="ItemNotifications" parent="." unique_id=296417052 instance=ExtResource("24_1u8w0")]
-
-[node name="Fade" type="ColorRect" parent="." unique_id=675159510]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [editable path="Bed"]
 [editable path="Teapot"]
