@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d1keqk14kj4om" path="res://tilesets/room_tiles.png" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://d3e4optw0tb3" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://scripts/dialogue.gd" id="4_1bvp3"]
-[ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="5_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dvqxuy1el8uu1" path="res://dialogue_ui.tscn" id="4_0odxb"]
 [ext_resource type="Texture2D" uid="uid://cpl3rdfirur6m" path="res://sprites/bed.png" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://breseuph2k751" path="res://scripts/events/event_command.gd" id="7_5vw27"]
 [ext_resource type="Script" uid="uid://dqkdu1jl2bi1e" path="res://scripts/events/dialogue_event.gd" id="8_kek77"]
@@ -216,87 +215,7 @@ tile_set = SubResource("TileSet_vkqoe")
 z_index = 1
 position = Vector2(551, 398)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=641810485]
-script = ExtResource("4_1bvp3")
-
-[node name="DialogueBox" type="Panel" parent="UI" unique_id=728410776]
-visible = false
-offset_left = 27.0
-offset_top = 781.0
-offset_right = 1889.0
-offset_bottom = 1047.0
-
-[node name="ColorRect" type="ColorRect" parent="UI/DialogueBox" unique_id=25249431]
-layout_mode = 0
-offset_right = 1862.0
-offset_bottom = 266.0
-color = Color(0.84705883, 0.62352943, 0.39607844, 1)
-
-[node name="Portrait" type="TextureRect" parent="UI/DialogueBox" unique_id=211297603]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 7.0
-offset_right = 270.0
-offset_bottom = 259.0
-
-[node name="ColorRect2" type="ColorRect" parent="UI/DialogueBox" unique_id=1055331714]
-layout_mode = 0
-offset_top = 259.0
-offset_right = 1861.0
-offset_bottom = 266.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="UI/DialogueBox" unique_id=1572380928]
-layout_mode = 0
-offset_right = 1862.0
-offset_bottom = 7.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="UI/DialogueBox" unique_id=1241831911]
-layout_mode = 0
-offset_right = 6.0
-offset_bottom = 261.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="UI/DialogueBox" unique_id=1152632969]
-layout_mode = 0
-offset_left = 1856.0
-offset_right = 1862.0
-offset_bottom = 266.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox" unique_id=604527061]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 27.0
-offset_right = 1819.0
-offset_bottom = 250.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/DialogueBox/MarginContainer" unique_id=2084050482]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/DialogueBox/MarginContainer/VBoxContainer" unique_id=1815239886]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/font = ExtResource("5_4c57u")
-theme_override_font_sizes/font_size = 50
-text = "dialogue text"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="OptionsLabel" type="RichTextLabel" parent="UI/DialogueBox/MarginContainer/VBoxContainer" unique_id=148386465]
-custom_minimum_size = Vector2(0, 96)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/normal_font = ExtResource("5_4c57u")
-theme_override_font_sizes/normal_font_size = 31
-bbcode_enabled = true
-text = "dialogue choice"
-fit_content = true
-autowrap_mode = 2
-vertical_alignment = 2
+[node name="UI" parent="." unique_id=390068744 instance=ExtResource("4_0odxb")]
 
 [node name="Bed" parent="." unique_id=73629740 instance=ExtResource("3_h2yge")]
 position = Vector2(416, 456)

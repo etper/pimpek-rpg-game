@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dvqxuy1el8uu1"]
+
+[ext_resource type="Script" uid="uid://j1i7c0vgcx22" path="res://scripts/dialogue.gd" id="1_2x5cq"]
+[ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="2_v6amk"]
+
+[node name="UI" type="CanvasLayer" unique_id=390068744]
+script = ExtResource("1_2x5cq")
+
+[node name="DialogueBox" type="Panel" parent="." unique_id=1647522296]
+visible = false
+offset_left = 27.0
+offset_top = 781.0
+offset_right = 1889.0
+offset_bottom = 1047.0
+
+[node name="ColorRect" type="ColorRect" parent="DialogueBox" unique_id=1292170299]
+layout_mode = 0
+offset_right = 1862.0
+offset_bottom = 266.0
+color = Color(0.9104925, 0.71670485, 0.5258905, 1)
+
+[node name="Portrait" type="TextureRect" parent="DialogueBox" unique_id=1021276018]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 270.0
+offset_bottom = 259.0
+
+[node name="ColorRect2" type="ColorRect" parent="DialogueBox" unique_id=1178322097]
+layout_mode = 0
+offset_top = 259.0
+offset_right = 1861.0
+offset_bottom = 266.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="DialogueBox" unique_id=1415906884]
+layout_mode = 0
+offset_right = 1862.0
+offset_bottom = 7.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="DialogueBox" unique_id=804291591]
+layout_mode = 0
+offset_right = 6.0
+offset_bottom = 261.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="DialogueBox" unique_id=594238315]
+layout_mode = 0
+offset_left = 1856.0
+offset_right = 1862.0
+offset_bottom = 266.0
+color = Color(0.47988033, 0.32600692, 0.16230214, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueBox" unique_id=16805358]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 27.0
+offset_right = 1819.0
+offset_bottom = 250.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/MarginContainer" unique_id=1597492333]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="DialogueBox/MarginContainer/VBoxContainer" unique_id=1882947374]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("2_v6amk")
+theme_override_font_sizes/font_size = 50
+text = "dialogue text"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="OptionsLabel" type="RichTextLabel" parent="DialogueBox/MarginContainer/VBoxContainer" unique_id=1195763380]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/normal_font = ExtResource("2_v6amk")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "dialogue choice"
+fit_content = true
+autowrap_mode = 2
+vertical_alignment = 2

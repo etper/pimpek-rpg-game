@@ -105,7 +105,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
 theme_override_font_sizes/font_size = 134
-text = "PRZYGODY PIMPKA"
+text = "TYTUL GRY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -128,7 +128,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
 theme_override_font_sizes/font_size = 90
-text = "NEW GAME"
+text = "NOWA GRA"
 
 [node name="Continue" type="Label" parent="VBoxContainer" unique_id=668096091]
 layout_mode = 2
@@ -136,7 +136,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
 theme_override_font_sizes/font_size = 90
-text = "CONTINUE"
+text = "KONTYNUUJ"
 
 [node name="Settings" type="Label" parent="VBoxContainer" unique_id=910880387]
 layout_mode = 2
@@ -144,7 +144,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
 theme_override_font_sizes/font_size = 90
-text = "SETTINGS"
+text = "OPCJE"
 
 [node name="Quit" type="Label" parent="VBoxContainer" unique_id=1454997552]
 layout_mode = 2
@@ -152,7 +152,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 40
 theme_override_fonts/font = ExtResource("1_5hgee")
 theme_override_font_sizes/font_size = 90
-text = "QUIT"
+text = "WYJDZ"
 
 [node name="Fade" type="ColorRect" parent="." unique_id=117452435]
 layout_mode = 0
