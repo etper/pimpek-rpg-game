@@ -1,9 +1,5 @@
 extends CanvasLayer
 
-@onready var labels = [
-	$Panel/MarginContainer/VBoxContainer/Inventory,
-]
-
 enum MenuState {
 	ROOT,
 	INVENTORY,
@@ -12,69 +8,129 @@ enum MenuState {
 	SETTINGS
 }
 
+@onready var apps: Array[Button] = [
+	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Inventory,
+	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Quests,
+	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Map,
+	$Panel/Phone/MarginContainer/VBoxContainer/Apps/Settings
+]
+
+@onready var phone = $Panel/Phone
+@onready var item_list = $Panel/InventoryPanel/ItemList
+
 var state := MenuState.ROOT
 var selected := 0
 var is_open := false
 
-@onready var item_list = $Panel/InventoryPanel/ItemList
+const COLUMNS := 2
+
 
 func _ready():
 	hide()
+
 	Inventory.inventory_changed.connect(update_inventory)
+
+	for button in apps:
+		button.focus_mode = Control.FOCUS_NONE
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("menu"):
 		toggle()
+		get_viewport().set_input_as_handled()
+
 
 func toggle():
 	is_open = !is_open
-
 	visible = is_open
-	#get_tree().paused = is_open
 
 	if is_open:
+		state = MenuState.ROOT
 		selected = 0
+
+		$Panel/InventoryPanel.hide()
+		phone.show()
+
 		update_selection()
+		animate_phone_open()
+
 
 func _process(_delta):
 	if !is_open:
 		return
 
-	if Input.is_action_just_pressed("move_down"):
-		selected = (selected + 1) % labels.size()
-		update_selection()
+	if state == MenuState.ROOT:
+		handle_phone_input()
 
-	elif Input.is_action_just_pressed("move_up"):
-		selected = (selected - 1 + labels.size()) % labels.size()
-		update_selection()
-
-	elif Input.is_action_just_pressed("interact"):
-		activate()
-		
-		
 	if Input.is_action_just_pressed("cancel"):
 		go_back()
 
-func update_selection():
-	var names = [
-		"Inventory",
-		"Quests",
-		"Map",
-        "Settings"
-	]
 
-	for i in labels.size():
-		labels[i].text = ("> " if i == selected else "  ") + names[i]
+func handle_phone_input():
+	var old_selected := selected
+
+	if Input.is_action_just_pressed("move_right"):
+		if selected % COLUMNS < COLUMNS - 1:
+			selected += 1
+
+	elif Input.is_action_just_pressed("move_left"):
+		if selected % COLUMNS > 0:
+			selected -= 1
+
+	elif Input.is_action_just_pressed("move_down"):
+		if selected + COLUMNS < apps.size():
+			selected += COLUMNS
+
+	elif Input.is_action_just_pressed("move_up"):
+		if selected - COLUMNS >= 0:
+			selected -= COLUMNS
+
+	elif Input.is_action_just_pressed("interact"):
+		activate()
+		return
+
+	if old_selected != selected:
+		SoundManager.play_scroll()
+		update_selection()
+
+
+func update_selection():
+	for i in apps.size():
+		var button := apps[i]
+
+		if i == selected:
+			button.scale = Vector2(1.08, 1.08)
+			button.modulate = Color.WHITE
+		else:
+			button.scale = Vector2.ONE
+			button.modulate = Color(0.8, 0.8, 0.8)
+
 
 func activate():
+	SoundManager.play_interact()
+
 	match selected:
 		0:
-			state = MenuState.INVENTORY
-			update_inventory()
-			$Panel/InventoryPanel.show()
+			open_inventory()
 
 		1:
-			$Panel/InventoryPanel.hide()
+			print("Quests app")
+
+		2:
+			print("Map app")
+
+		3:
+			print("Settings app")
+
+
+func open_inventory():
+	state = MenuState.INVENTORY
+
+	update_inventory()
+
+	phone.hide()
+	$Panel/InventoryPanel.show()
+
 
 func update_inventory():
 	item_list.clear()
@@ -85,7 +141,11 @@ func update_inventory():
 
 	for id in Inventory.items:
 		var amount = Inventory.items[id]
-		item_list.add_text("%s x%d\n" % [id.capitalize(), amount])
+
+		item_list.add_text(
+			"%s x%d\n" % [id.capitalize(), amount]
+		)
+
 
 func go_back():
 	match state:
@@ -94,4 +154,34 @@ func go_back():
 
 		MenuState.INVENTORY:
 			$Panel/InventoryPanel.hide()
+			phone.show()
+
 			state = MenuState.ROOT
+			update_selection()
+
+		_:
+			state = MenuState.ROOT
+			phone.show()
+			update_selection()
+
+
+func animate_phone_open():
+	phone.scale = Vector2(0.85, 0.85)
+	phone.modulate.a = 0.0
+
+	var tween = create_tween()
+	tween.set_parallel(true)
+
+	tween.tween_property(
+		phone,
+		"scale",
+		Vector2.ONE,
+		0.22
+	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		phone,
+		"modulate:a",
+		1.0,
+		0.15
+	)

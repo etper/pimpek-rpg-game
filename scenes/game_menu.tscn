@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://dfbpke6qkc8b3" path="res://scenes/game_menu.gd" id="1_qdaa4"]
 [ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="2_vrsc2"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lswn8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdaa4"]
+
 [node name="GameMenu" type="CanvasLayer" unique_id=1573289332]
 script = ExtResource("1_qdaa4")
 
@@ -11,60 +15,7 @@ offset_left = -2.0
 offset_top = -2.0
 offset_right = 1918.0
 offset_bottom = 1078.0
-
-[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=565813725]
-visible = false
-layout_mode = 0
-offset_right = 1919.0
-offset_bottom = 1077.0
-color = Color(0.84705883, 0.62352943, 0.39607844, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="Panel" unique_id=150184807]
-visible = false
-layout_mode = 0
-offset_top = 1073.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="Panel" unique_id=1966348404]
-visible = false
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 7.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="Panel" unique_id=943879248]
-visible = false
-layout_mode = 0
-offset_right = 6.0
-offset_bottom = 1074.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="Panel" unique_id=106906019]
-visible = false
-layout_mode = 0
-offset_left = 1914.0
-offset_right = 1920.0
-offset_bottom = 1074.0
-color = Color(0.47988033, 0.32600692, 0.16230214, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1692875265]
-layout_mode = 0
-offset_left = 442.0
-offset_top = 370.0
-offset_right = 748.0
-offset_bottom = 496.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1546400210]
-layout_mode = 2
-
-[node name="Inventory" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1004645893]
-layout_mode = 2
-theme_override_constants/outline_size = 20
-theme_override_fonts/font = ExtResource("2_vrsc2")
-theme_override_font_sizes/font_size = 50
-text = "INVENTORY"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lswn8")
 
 [node name="InventoryPanel" type="Panel" parent="Panel" unique_id=1361526563]
 visible = false
@@ -77,3 +28,52 @@ offset_bottom = 1080.0
 layout_mode = 0
 offset_right = 1608.0
 offset_bottom = 1075.0
+
+[node name="Phone" type="Panel" parent="Panel" unique_id=823188467]
+custom_minimum_size = Vector2(720, 850)
+layout_mode = 0
+offset_left = 960.0
+offset_top = 88.0
+offset_right = 1680.0
+offset_bottom = 938.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdaa4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Phone" unique_id=1423782642]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_right = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Phone/MarginContainer" unique_id=158940367]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/Phone/MarginContainer/VBoxContainer" unique_id=1546230059]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vrsc2")
+theme_override_font_sizes/font_size = 50
+text = "PIMPHONE"
+
+[node name="Apps" type="GridContainer" parent="Panel/Phone/MarginContainer/VBoxContainer" unique_id=1195477763]
+layout_mode = 2
+columns = 2
+
+[node name="Inventory" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=90875113]
+layout_mode = 2
+text = "INVENTORY"
+
+[node name="Quests" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=2053718925]
+layout_mode = 2
+text = "QUESTS"
+
+[node name="Map" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=1479561840]
+layout_mode = 2
+text = "MAP"
+
+[node name="Settings" type="Button" parent="Panel/Phone/MarginContainer/VBoxContainer/Apps" unique_id=56137998]
+layout_mode = 2
+text = "SETTINGS"
