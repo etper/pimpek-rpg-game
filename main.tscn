@@ -3,6 +3,7 @@
 [ext_resource type="AudioStream" uid="uid://cwbeb101n35n5" path="res://music/Pimpek Room.mp3" id="1_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://d1keqk14kj4om" path="res://tilesets/room_tiles.png" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://d3e4optw0tb3" path="res://scenes/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://7htmqanbo2dd" path="res://main.gd" id="1_lswn8"]
 [ext_resource type="PackedScene" uid="uid://dbgwexn3egno0" path="res://scenes/Interactable.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dvqxuy1el8uu1" path="res://dialogue_ui.tscn" id="4_0odxb"]
 [ext_resource type="Texture2D" uid="uid://cpl3rdfirur6m" path="res://sprites/bed.png" id="6_5vw27"]
@@ -201,6 +202,7 @@ enemy = ExtResource("22_d13ii")
 metadata/_custom_type_script = "uid://bkgurhpwesdqe"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
+script = ExtResource("1_lswn8")
 
 [node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=701678097]
 stream = ExtResource("1_1u8w0")
@@ -289,6 +291,10 @@ scale = Vector2(0.43999022, 0.44)
 scale = Vector2(0.4748381, 0.45600843)
 
 [node name="ItemNotifications" parent="." unique_id=296417052 instance=ExtResource("24_1u8w0")]
+
+[node name="Fade" type="ColorRect" parent="." unique_id=675159510]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [editable path="Bed"]
 [editable path="Teapot"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dx2hiyj201y07"]
+
+[ext_resource type="Script" uid="uid://463l6jx44cn1" path="res://scenes/cutscene.gd" id="1_a320b"]
+[ext_resource type="VideoStream" uid="uid://cfedw3ppmg248" path="res://videos/pimpek-rpg-intro.ogv" id="1_edmg7"]
+
+[node name="Cutscene" type="Control" unique_id=1638458087]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a320b")
+
+[node name="Video" type="VideoStreamPlayer" parent="." unique_id=137929159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_edmg7")

@@ -28,3 +28,14 @@ func fade_out(duration := 1.0):
 
 	player.stop()
 	player.volume_db = 0
+
+func fade_in(duration := 1.0):
+	if !player.playing:
+		return
+
+	player.volume_db = -80.0
+
+	var tween = create_tween()
+	tween.tween_property(player, "volume_db", 0.0, duration)
+
+	await tween.finished

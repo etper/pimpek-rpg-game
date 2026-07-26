@@ -78,7 +78,7 @@ func activate():
 	match selected:
 		0:
 			await fade_to_black()
-			get_tree().change_scene_to_file("res://main.tscn")
+			get_tree().change_scene_to_file("res://scenes/cutscene.tscn")
 
 		1:
 			if !has_save:
