@@ -33,6 +33,13 @@ func fade_in(duration := 1.0):
 	if !player.playing:
 		return
 
+	var music_bus := AudioServer.get_bus_index("Music")
+
+	# User has Music at 0% — don't fade anything in.
+	if AudioServer.get_bus_volume_db(music_bus) <= -80.0:
+		player.volume_db = 0.0
+		return
+
 	player.volume_db = -80.0
 
 	var tween = create_tween()

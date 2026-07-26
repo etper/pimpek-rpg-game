@@ -9,9 +9,9 @@ extends Control
 
 var selected := 0
 
-var master := 100
-var music := 100
-var sfx := 100
+var master := 50
+var music := 50
+var sfx := 50
 
 const MAIN_MENU_MUSIC = preload("res://music/Main Menu.mp3")
 
@@ -82,17 +82,16 @@ func update_menu():
     labels[3].text = ("> Back" if selected == 3 else "  Back")
 
 func apply_audio():
-    AudioServer.set_bus_volume_db(
-        AudioServer.get_bus_index("Master"),
-        linear_to_db(master / 100.0)
-    )
+    set_bus_volume("Master", master)
+    set_bus_volume("Music", music)
+    set_bus_volume("SFX", sfx)
 
-    AudioServer.set_bus_volume_db(
-        AudioServer.get_bus_index("Music"),
-        linear_to_db(music / 100.0)
-    )
 
-    AudioServer.set_bus_volume_db(
-        AudioServer.get_bus_index("SFX"),
-        linear_to_db(sfx / 100.0)
-    )
+func set_bus_volume(bus_name: String, value: int):
+    var bus := AudioServer.get_bus_index(bus_name)
+
+    if value <= 0:
+        AudioServer.set_bus_mute(bus, true)
+    else:
+        AudioServer.set_bus_mute(bus, false)
+        AudioServer.set_bus_volume_db(bus, linear_to_db(value / 100.0))
