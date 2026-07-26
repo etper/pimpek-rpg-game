@@ -23,9 +23,27 @@ func _ready():
 	anim.frame_changed.connect(_on_frame_changed)
 
 func _physics_process(_delta):
-	
 	if get_tree().paused:
 		return
+	
+	var game_menu = get_tree().current_scene.get_node_or_null("GameMenu")
+	
+	if game_menu != null and game_menu.is_open:
+		velocity = Vector2.ZERO
+		anim.flip_h = false
+		anim.play("phone")
+		return
+	
+	if anim.animation == "phone":
+		if abs(facing.x) > abs(facing.y):
+			anim.flip_h = facing.x < 0
+			anim.play("idle_side")
+		elif facing.y < 0:
+			anim.flip_h = false
+			anim.play("idle_up")
+		else:
+			anim.flip_h = false
+			anim.play("idle_down")
 	
 	var ui = get_tree().current_scene.get_node("UI")
 

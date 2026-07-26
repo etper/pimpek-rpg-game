@@ -16,10 +16,10 @@
 [ext_resource type="Script" uid="uid://dkkddgxrcrifg" path="res://scripts/events/dialogue_choice.gd" id="12_w48qg"]
 [ext_resource type="Script" uid="uid://b5ssf3oxs6qrq" path="res://scripts/events/add_item.gd" id="13_2cqfq"]
 [ext_resource type="Script" uid="uid://dat21hmcobdej" path="res://scripts/events/choice_event.gd" id="13_vivmo"]
-[ext_resource type="Script" uid="uid://defefeianjptd" path="res://scripts/events/wait_event.gd" id="15_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://cp4unsyp7l3t0" path="res://scenes/game_menu.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://blvf4hmy4m036" path="res://scripts/events/play_sound.gd" id="16_yaehf"]
 [ext_resource type="AudioStream" uid="uid://cfm4k56sps816" path="res://sfx/ding.wav" id="17_074og"]
+[ext_resource type="AudioStream" uid="uid://bgct76wvotn6d" path="res://sfx/teaMake.wav" id="17_lswn8"]
 [ext_resource type="Script" uid="uid://e48rq7o4roy3" path="res://scripts/events/disable_interactable.gd" id="19_82xsv"]
 [ext_resource type="Texture2D" uid="uid://icrheki1yq2y" path="res://sprites/ants.png" id="21_getpj"]
 [ext_resource type="Resource" uid="uid://c6u5ajvayp0x6" path="res://enemies/ant.tres" id="22_d13ii"]
@@ -134,10 +134,11 @@ text = "Jak przyjemnie sie patrzy na to, co razem zbudowalismy"
 expression = ExtResource("9_a6jrf")
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
-[sub_resource type="Resource" id="Resource_vivmo"]
-script = ExtResource("15_2cqfq")
-seconds = 2.0
-metadata/_custom_type_script = "uid://defefeianjptd"
+[sub_resource type="Resource" id="Resource_0odxb"]
+script = ExtResource("16_yaehf")
+sound = ExtResource("17_lswn8")
+wait_until_finished = true
+metadata/_custom_type_script = "uid://blvf4hmy4m036"
 
 [sub_resource type="Resource" id="Resource_yaehf"]
 script = ExtResource("16_yaehf")
@@ -162,7 +163,7 @@ metadata/_custom_type_script = "uid://e48rq7o4roy3"
 [sub_resource type="Resource" id="Resource_074og"]
 script = ExtResource("12_w48qg")
 text = "Tak"
-events = Array[ExtResource("7_5vw27")]([SubResource("Resource_vivmo"), SubResource("Resource_yaehf"), SubResource("Resource_cegan"), SubResource("Resource_d13ii"), SubResource("Resource_getpj")])
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_0odxb"), SubResource("Resource_yaehf"), SubResource("Resource_cegan"), SubResource("Resource_d13ii"), SubResource("Resource_getpj")])
 metadata/_custom_type_script = "uid://dkkddgxrcrifg"
 
 [sub_resource type="Resource" id="Resource_2cqfq"]
@@ -182,7 +183,7 @@ text = "Zastanawialem sie, gdzie to zostawilem!"
 expression = ExtResource("22_lswn8")
 metadata/_custom_type_script = "uid://dqkdu1jl2bi1e"
 
-[sub_resource type="Resource" id="Resource_0odxb"]
+[sub_resource type="Resource" id="Resource_qsp4k"]
 script = ExtResource("13_2cqfq")
 item_id = "Stare Skarpetki"
 metadata/_custom_type_script = "uid://b5ssf3oxs6qrq"
@@ -203,6 +204,7 @@ metadata/_custom_type_script = "uid://bkgurhpwesdqe"
 
 [node name="Main" type="Node2D" unique_id=1148531345]
 script = ExtResource("1_lswn8")
+metadata/_edit_horizontal_guides_ = [-442.0]
 
 [node name="BG Music" type="AudioStreamPlayer2D" parent="." unique_id=701678097]
 stream = ExtResource("1_1u8w0")
@@ -270,7 +272,7 @@ scale = Vector2(0.8, 1)
 [node name="KitchenCountertop2" parent="." unique_id=2022065344 instance=ExtResource("3_h2yge")]
 position = Vector2(1046, 377)
 sprite = ExtResource("11_efxa6")
-events = Array[ExtResource("7_5vw27")]([SubResource("Resource_ryguw"), SubResource("Resource_0odxb"), SubResource("Resource_lswn8")])
+events = Array[ExtResource("7_5vw27")]([SubResource("Resource_ryguw"), SubResource("Resource_qsp4k"), SubResource("Resource_lswn8")])
 
 [node name="Sprite2D" parent="KitchenCountertop2" index="0" unique_id=122994009]
 texture = ExtResource("11_efxa6")

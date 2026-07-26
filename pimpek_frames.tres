@@ -1,6 +1,7 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dpxvr6jaeing"]
 
 [ext_resource type="Texture2D" uid="uid://btp7j7ykksp5b" path="res://sprites/pimpekWalk.png" id="1_t8ojn"]
+[ext_resource type="Texture2D" uid="uid://hccm8sha14g7" path="res://sprites/pimpekPhoneAnim.png" id="2_3mqsh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t8ojn"]
 atlas = ExtResource("1_t8ojn")
@@ -86,6 +87,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3mqsh")
+}],
+"loop": 1,
+"name": &"phone",
 "speed": 5.0
 }, {
 "frames": [{
