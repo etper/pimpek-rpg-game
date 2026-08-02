@@ -60,10 +60,10 @@ func _unhandled_input(event):
 
 func update_menu():
 	var names = [
-		"NEW GAME",
-		"CONTINUE",
-		"SETTINGS",
-		"QUIT"
+		"NOWA GRA",
+		"KONTYNUUJ",
+		"USTAWIENIA",
+		"WYJDZ"
 	]
 
 	for i in options.size():
