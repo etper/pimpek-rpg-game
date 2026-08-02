@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dfbpke6qkc8b3" path="res://scenes/game_menu.gd" id="1_qdaa4"]
 [ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="2_vrsc2"]
+[ext_resource type="PackedScene" uid="uid://x52p3m2se6me" path="res://scenes/phone_settings.tscn" id="3_ysvk1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lswn8"]
 
@@ -111,3 +112,7 @@ anchor_bottom = 1.0
 offset_top = 70.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SettingsScreen" parent="Panel/Phone" unique_id=89481380 instance=ExtResource("3_ysvk1")]
+visible = false
+layout_mode = 0

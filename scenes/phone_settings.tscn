@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://x52p3m2se6me"]
+
+[ext_resource type="FontFile" uid="uid://n6apm5jh3r76" path="res://Minecraft.ttf" id="1_gmwra"]
+
+[node name="PhoneSettings" type="Control" unique_id=298922755]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=474201637]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1856334097]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1452282330]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_gmwra")
+theme_override_font_sizes/font_size = 88
+text = "Master Volume"
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=732893374]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_gmwra")
+theme_override_font_sizes/font_size = 88
+text = "Music Volume"
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1574348088]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_gmwra")
+theme_override_font_sizes/font_size = 88
+text = "SFX Volume"
+
+[node name="BackLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1037436132]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_gmwra")
+theme_override_font_sizes/font_size = 88
+text = "Back"
+
+[node name="FullscreenLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=713278016]
+layout_mode = 2
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_gmwra")
+theme_override_font_sizes/font_size = 88
+text = "Back"
