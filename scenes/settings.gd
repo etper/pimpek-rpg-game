@@ -13,6 +13,15 @@ var master := 50
 var music := 50
 var sfx := 50
 
+# ADD THESE
+const INITIAL_REPEAT_DELAY := 0.25
+const REPEAT_INTERVAL := 0.06
+const MAX_STEP := 8
+
+var hold_dir := 0
+var hold_time := 0.0
+var repeat_timer := 0.0
+
 const MAIN_MENU_MUSIC = preload("res://music/Main Menu.mp3")
 
 func _ready():
@@ -31,6 +40,18 @@ func _ready():
 	update_menu()
 	MusicManager.play(MAIN_MENU_MUSIC)
 
+func _process(delta):
+	if hold_dir == 0:
+		return
+
+	hold_time += delta
+	repeat_timer -= delta
+
+	if repeat_timer <= 0.0:
+		var step := mini(1 + int(hold_time * 4.0), MAX_STEP)
+		change_value(hold_dir * step)
+		repeat_timer = REPEAT_INTERVAL
+
 func _unhandled_input(event):
 	if event.is_action_pressed("move_down"):
 		selected = (selected + 1) % labels.size()
@@ -44,11 +65,23 @@ func _unhandled_input(event):
 
 	elif event.is_action_pressed("move_left"):
 		SoundManager.play_interact()
-		change_value(-10)
+		hold_dir = -1
+		hold_time = 0.0
+		repeat_timer = INITIAL_REPEAT_DELAY
+		change_value(-1)
 
 	elif event.is_action_pressed("move_right"):
 		SoundManager.play_interact()
-		change_value(10)
+		hold_dir = 1
+		hold_time = 0.0
+		repeat_timer = INITIAL_REPEAT_DELAY
+		change_value(1)
+
+	elif event.is_action_released("move_left") and hold_dir == -1:
+		hold_dir = 0
+
+	elif event.is_action_released("move_right") and hold_dir == 1:
+		hold_dir = 0
 
 	elif event.is_action_pressed("interact"):
 		if selected == 3:
